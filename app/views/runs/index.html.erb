@@ -16,7 +16,7 @@
   <% @runs.each do |run| %>
     <tr>
       <td><%= run.name %></td>
-      <td><%= run.date %></td>
+      <td><%= link_to run.date, run_path(run) %></td>
       <td><%= run.distance %></td>
       <td><%= run.duration %></td>
       <td><%= run.pace_per_mile %></td>

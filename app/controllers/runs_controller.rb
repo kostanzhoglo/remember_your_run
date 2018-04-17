@@ -4,4 +4,8 @@ class RunsController < ApplicationController
     @runs = Run.all
   end
 
+  def show
+    @run = Run.find_by(id: params[:id])
+  end
+
 end
