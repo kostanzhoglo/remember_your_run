@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_215247) do
+ActiveRecord::Schema.define(version: 2018_04_18_220150) do
 
   create_table "months", force: :cascade do |t|
     t.string "name"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2018_04_18_215247) do
     t.string "pace_per_mile"
     t.text "notes"
     t.integer "number_intervals"
-    t.integer "interval_length"
-    t.integer "rest_between_interval"
+    t.string "interval_length"
+    t.string "rest_between_interval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "month_id"
