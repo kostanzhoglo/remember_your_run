@@ -19,3 +19,14 @@ user
 month
   has many runs
   has many users through runs
+
+#3 Create new run
+
+  A Run doesn't exist outside of the context of what Month it belongs_to.  MUST be created with this in mind.
+    -Represent this through the URL.
+      -NESTED RESOURCE.
+
+  POST /months/:id/runs
+
+  Nested Resource
+    -Runs are nested in terms of URLs under their parent Month

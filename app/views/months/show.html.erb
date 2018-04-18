@@ -1,6 +1,9 @@
 <h2>Create a New Run</h2><br><br>
 
-<%= form_for @run do |f| %>
+<!-- For NESTED RESOURCE... Below... ([@month, @run]).
+@month is parent, and @run is MAIN source for this form.
+Will send this action to... month_runs_path(@month) -->
+<%= form_for([@month, @run]) do |f| %>
   <%= f.label :date %>
   <%= f.text_field :date %>
 
