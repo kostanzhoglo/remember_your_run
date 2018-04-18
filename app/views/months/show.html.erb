@@ -5,7 +5,7 @@
 Will send this action to... month_runs_path(@month) -->
 <%= form_for([@month, @run]) do |f| %>
   <%= f.label :date %>
-  <%= f.text_field :date %>
+  <%= f.text_field :date, placeholder: "Year-Month-Day" %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
@@ -51,7 +51,7 @@ Will send this action to... month_runs_path(@month) -->
 
   <% @month.runs.each do |run| %>
     <tr>
-      <td><%= link_to run.date, run_path(run) %></td>
+      <td><%= link_to run.date %></td>
       <td><%= run.name %></td>
       <td><%= run.distance %></td>
       <td><%= run.duration %></td>
