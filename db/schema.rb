@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_18_151037) do
+ActiveRecord::Schema.define(version: 2018_04_18_215247) do
 
   create_table "months", force: :cascade do |t|
     t.string "name"
@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 2018_04_18_151037) do
   end
 
   create_table "runs", force: :cascade do |t|
-    t.date "date"
+    t.string "date"
     t.string "name"
     t.float "distance"
-    t.integer "duration"
-    t.integer "pace_per_mile"
+    t.string "duration"
+    t.string "pace_per_mile"
     t.text "notes"
     t.integer "number_intervals"
     t.integer "interval_length"
