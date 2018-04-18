@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_17_161620) do
+ActiveRecord::Schema.define(version: 2018_04_18_004656) do
+
+  create_table "calendars", force: :cascade do |t|
+    t.string "name"
+    t.string "year"
+    t.float "month_distance"
+    t.string "goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "runs", force: :cascade do |t|
     t.date "date"
