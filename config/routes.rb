@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
   resources :runs
+  
   resources :months do
     resources :runs
   end

@@ -1,5 +1,10 @@
 class RunsController < ApplicationController
 
+
+  def create
+    raise params.inspect
+  end
+
   def index
     @runs = Run.all
   end
