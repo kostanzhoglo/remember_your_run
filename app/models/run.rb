@@ -3,13 +3,13 @@ class Run < ApplicationRecord
   belongs_to :month
 
   def format_pace_per_mile
-    seconds_per_mile = ((self.duration * 60) / self.distance)
-    seconds_per_mile.round
+    seconds_per_mile = ((self.duration * 60) / self.distance).round
     Time.at(seconds_per_mile).utc.strftime("%M:%S")
+  end
 
-    # seconds_remainder = (self.duration).divmod(self.distance)
-    # seconds_remainder.round(2)
-
+  def format_interval_length
+    seconds = self.interval_length
+    Time.at(seconds).utc.strftime("%M:%S")
   end
 
 end

@@ -14,10 +14,7 @@ Will send this action to... month_runs_path(@month) -->
   <%= f.text_field :distance, size: "7" %>
 
   <%= f.label :duration %>
-  <%= f.text_field :duration, size: "7" %>
-
-  <%= f.label :pace_per_mile %>
-  <%= f.text_field :pace_per_mile, size: "7" %><br>
+  <%= f.text_field :duration, size: "7" %><br>
 
   <%= f.label :notes %>
   <%= f.text_field :notes, size: "80" %>
@@ -58,7 +55,7 @@ Will send this action to... month_runs_path(@month) -->
       <td><%= run.format_pace_per_mile %></td>
       <td><%= run.notes %></td>
       <td><%= run.number_intervals %></td>
-      <td><%= run.interval_length %></td>
+      <td><%= run.format_interval_length %></td>
       <td><%= run.rest_between_interval %></td>
     </tr>
   <% end %>
