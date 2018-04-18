@@ -1,8 +1,8 @@
 class WelcomeController < ApplicationController
 
   def home
-    @calendars = Calendar.all
-    @calendar = Calendar.new
+    @months = Month.all
+    @month = Month.new
   end
 
 end

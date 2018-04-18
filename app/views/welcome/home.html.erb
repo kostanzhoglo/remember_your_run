@@ -2,9 +2,9 @@
 <h3>Running is healthy. Remember what you did!</h3><br>
 
 <strong><h2>Your Previous Runs</h2></strong>
-<% @calendars.each do |calendar| %>
-  <%= link_to(calendar) do %>
-    <h3><%= calendar.name %> <%= calendar.year %></h3>
+<% @months.each do |month| %>
+  <%= link_to(month) do %>
+    <h3><%= month.name %> <%= month.year %></h3>
   <% end %>
 <% end %>
 
@@ -12,7 +12,7 @@
 
 <section class="main">
   <strong><h2>Start a New Running Month</h2></strong>
-  <%= form_for @calendar do |f| %>
+  <%= form_for @month do |f| %>
     <%= f.label :month %>
     <%= f.text_field :name %>  <!--, class: "new-todo" -->
 

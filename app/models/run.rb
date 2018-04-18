@@ -1,5 +1,5 @@
 class Run < ApplicationRecord
 
-  belongs_to :calendar
+  belongs_to :month
 
 end
