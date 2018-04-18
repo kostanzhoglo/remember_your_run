@@ -2,7 +2,8 @@ class MonthsController < ApplicationController
 
   def show
     @month = Month.find_by(id: params[:id])
-    @run = @month.runs.build
+    @run = Run.new      #Run.find_by(id: params[:id])        = @month.runs.build
+    @runs = @month.runs        # OR, Run.all   --even though I know that's wrong.  The page rendered with that code.
   end
 
   def create
