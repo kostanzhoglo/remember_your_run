@@ -8,16 +8,18 @@
 
 <br>
 
-<strong><h4>Start a New Running Month</h4></strong>
-<%= form_for @calendar do |f| %>
-  <%= f.label :month %>
-  <%= f.text_field :name %>
+<section class="main">
+  <strong><h4>Start a New Running Month</h4></strong>
+  <%= form_for @calendar do |f| %>
+    <%= f.label :month %>
+    <%= f.text_field :name %>  <!--, class: "new-todo" -->
 
-  <%= f.label :year %>
-  <%= f.text_field :year %><br>
+    <%= f.label :year %>
+    <%= f.text_field :year %><br>
 
-  <%= f.label :goal %>
-  <%= f.text_field :goal, size: "49" %><br>
+    <%= f.label :goal %>
+    <%= f.text_field :goal, size: "49" %><br>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</section>
