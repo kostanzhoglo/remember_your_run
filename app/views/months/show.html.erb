@@ -51,7 +51,7 @@ Will send this action to... month_runs_path(@month) -->
 
   <% @month.runs.each do |run| %>
     <tr>
-      <td><%= link_to run.date %></td>
+      <td><%= link_to run.date, run_path(run) %></td>
       <td><%= run.name %></td>
       <td><%= run.distance %></td>
       <td><%= run.duration %></td>
