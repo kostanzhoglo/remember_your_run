@@ -12,4 +12,10 @@ class Run < ApplicationRecord
     Time.at(seconds).utc.strftime("%M:%S")
   end
 
+  def format_rest_between
+    seconds = self.rest_between_interval
+    Time.at(seconds).utc.strftime("%M:%S")
+  end
+
+
 end
