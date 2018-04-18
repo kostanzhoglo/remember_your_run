@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   root 'welcome#home'
   resources :runs
-  
+  resources :calendars
+
 end
