@@ -6,4 +6,18 @@
   <h4><%= link_to cal.name, calendar_path(cal) %></h4>
 <% end %>
 
-<br><br><br><br>
+<br>
+
+<strong><h4>Start a New Running Month</h4></strong>
+<%= form_for @calendar do |f| %>
+  <%= f.label :month %>
+  <%= f.text_field :name %>
+
+  <%= f.label :year %>
+  <%= f.text_field :year %><br>
+
+  <%= f.label :goal %>
+  <%= f.text_field :goal, size: "49" %><br>
+
+  <%= f.submit %>
+<% end %>
