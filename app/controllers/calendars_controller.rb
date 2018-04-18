@@ -5,10 +5,16 @@ class CalendarsController < ApplicationController
   end
 
   def create
-    @calendar = Calendar.new(params[:calendar])
+    @calendar = Calendar.new(calendar_params)
     @calendar.save
 
     redirect_to calendar_url(@calendar)
   end
+
+  private
+
+    def calendar_params
+      params.require(:calendar).permit(:name, :year, :goal)
+    end
 
 end
