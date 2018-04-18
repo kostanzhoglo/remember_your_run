@@ -1,15 +1,17 @@
 <h1>Remember Your Run</h1>
-<h3>Running is healthy. Remember what you did!</h3>
+<h3>Running is healthy. Remember what you did!</h3><br>
 
-<strong><h4>Your Previous Runs</h4></strong>
-<% @calendars.each do |cal| %>
-  <h4><%= link_to cal.name, calendar_path(cal) %></h4>
+<strong><h2>Your Previous Runs</h2></strong>
+<% @calendars.each do |calendar| %>
+  <%= link_to(calendar) do %>
+    <h3><%= calendar.name %> <%= calendar.year %></h3>
+  <% end %>
 <% end %>
 
 <br>
 
 <section class="main">
-  <strong><h4>Start a New Running Month</h4></strong>
+  <strong><h2>Start a New Running Month</h2></strong>
   <%= form_for @calendar do |f| %>
     <%= f.label :month %>
     <%= f.text_field :name %>  <!--, class: "new-todo" -->
