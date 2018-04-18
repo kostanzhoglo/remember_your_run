@@ -2,6 +2,7 @@ class MonthsController < ApplicationController
 
   def show
     @month = Month.find_by(id: params[:id])
+    @run = Run.new
   end
 
   def create

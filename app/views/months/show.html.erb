@@ -1,1 +1,62 @@
+<h2>Create a New Run</h2><br><br>
+
+<%= form_for @run do |f| %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :distance %>
+  <%= f.text_field :distance %>
+
+  <%= f.label :duration %>
+  <%= f.text_field :duration %>
+
+  <%= f.label :pace_per_mile %>
+  <%= f.text_field :pace_per_mile %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.label :number_intervals %>
+  <%= f.text_field :number_intervals %>
+
+  <%= f.label :interval_length %>
+  <%= f.text_field :interval_length %>
+
+  <%= f.label :rest_between_interval %>
+  <%= f.text_field :rest_between_interval %>
+
+  <%= f.submit %>
+<% end %>
+
 <h1>Here are <%= @month.name %>'s RUNS</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Distance (Miles)</th>
+    <th>Time</th>
+    <th>Pace / Mile</th>
+    <th>Notes</th>
+    <th>Number of Intervals</th>
+    <th>Interval Length</th>
+    <th>Rest Between Intervals</th>
+  </tr>
+
+  <% @month.runs.each do |run| %>
+    <tr>
+      <td><%= link_to run.date, run_path(run) %></td>
+      <td><%= run.name %></td>
+      <td><%= run.distance %></td>
+      <td><%= run.duration %></td>
+      <td><%= run.pace_per_mile %></td>
+      <td><%= run.notes %></td>
+      <td><%= run.number_intervals %></td>
+      <td><%= run.interval_length %></td>
+      <td><%= run.rest_between_interval %></td>
+    </tr>
+  <% end %>
+</table>
