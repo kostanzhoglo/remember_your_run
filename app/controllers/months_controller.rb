@@ -8,9 +8,13 @@ class MonthsController < ApplicationController
 
   def create
     @month = Month.new(month_params)
-    @month.save
-
-    redirect_to month_url(@month)
+    if @month.save
+      redirect_to month_url(@month)
+    else
+      @months = Month.all
+      # @month = Month.new
+      render 'welcome/home'
+    end
   end
 
   private
