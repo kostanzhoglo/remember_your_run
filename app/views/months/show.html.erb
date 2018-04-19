@@ -11,19 +11,19 @@ Will send this action to... month_runs_path(@month) -->
   <%= f.text_field :name %><br>
 
   <%= f.label :distance %>
-  <%= f.text_field :distance, size: "7" %>
+  <%= f.text_field :distance, placeholder: "Example 2.7", size: "13" %>
 
   <%= f.label :duration %>
-  <%= f.text_field :duration, size: "7" %><br>
+  <%= f.text_field :duration, placeholder: "Example 28:45", size: "13" %><br>
 
   <%= f.label :number_intervals %>
-  <%= f.text_field :number_intervals, size: "7" %>
+  <%= f.text_field :number_intervals, size: "4" %>
 
   <%= f.label :interval_length %>
-  <%= f.text_field :interval_length, size: "7" %>
+  <%= f.text_field :interval_length, placeholder: "Example 1:15", size: "11" %>
 
   <%= f.label :rest_between_interval %>
-  <%= f.text_field :rest_between_interval, size: "7" %><br>
+  <%= f.text_field :rest_between_interval, placeholder: "Example 4:00", size: "11" %><br>
 
   <%= f.label :notes %>
   <%= f.text_field :notes, size: "80" %>
