@@ -1,10 +1,10 @@
 class RunsController < ApplicationController
 
-
   def create
     @month = Month.find(params[:month_id])
     @run = @month.runs.build(run_params)
     if @run.save
+      flash[:notice] = "Run saved successfully."
       redirect_to month_path(@month)
     else
       @month = Month.find(params[:month_id])
