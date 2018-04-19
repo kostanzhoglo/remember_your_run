@@ -1,4 +1,4 @@
-<h2>Create a New Run</h2><br><br>
+<h2>Create a New Run</h2>
 
 <!-- For NESTED RESOURCE... Below... ([@month, @run]).
 @month is parent, and @run is MAIN source for this form.
@@ -30,6 +30,7 @@ Will send this action to... month_runs_path(@month) -->
 
   <%= f.submit %>
 <% end %>
+<br><br>
 
 <h1><%= @month.name %> <%= @month.year %> Log</h1>
 
@@ -48,7 +49,7 @@ Will send this action to... month_runs_path(@month) -->
 
   <% @runs.each do |run| %>
     <tr>
-      <td><%= link_to run.date, month_run_path(run) %></td>     <!-- link_to      , run_path(run)-->
+      <td><%= link_to run.date, month_run_path(run) %></td>
       <td><%= run.name %></td>
       <td><%= run.distance %></td>
       <td><%= run.duration %></td>
