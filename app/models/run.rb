@@ -2,7 +2,8 @@ class Run < ApplicationRecord
 
   belongs_to :month
 
-  validates :date, :name, :distance, :duration, presence: true
+  validates :date, :name, :distance, presence: true
+  validates :duration, :interval_length, :rest_between_interval, presence: true, numericality: true
 
   def format_pace_per_mile
     seconds_per_mile = (total_seconds(self.duration) / self.distance).round
