@@ -4,8 +4,13 @@ class RunsController < ApplicationController
   def create
     @month = Month.find(params[:month_id])
     @run = @month.runs.build(run_params)
-    @run.save
-    redirect_to month_path(@month)
+    if @run.save
+      redirect_to month_path(@month)
+    else
+      @month = Month.find(params[:month_id])
+      @runs = @month.runs
+      render 'months/show'
+    end
   end
 
   def index

@@ -13,11 +13,11 @@
 <section class="main">
   <strong><h2>Start a New Running Month</h2></strong>
   <%= form_for @month do |f| %>
-    <%= f.label :month %>
-    <%= f.text_field :name %>  <!--, class: "new-todo" -->
+    <%= f.label :month%>
+    <%= f.text_field :name, placeholder: (@month.errors.full_messages_for(:name).first) %>  <!--, class: "new-todo" -->
 
     <%= f.label :year %>
-    <%= f.text_field :year %><br>
+    <%= f.text_field :year, placeholder: (@month.errors.full_messages_for(:year).first) %><br>
 
     <%= f.label :goal %>
     <%= f.text_field :goal, size: "49" %><br>
