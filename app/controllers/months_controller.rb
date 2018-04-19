@@ -1,5 +1,10 @@
 class MonthsController < ApplicationController
 
+  def index
+    @months = Month.all
+    @month = Month.new
+  end
+
   def show
     @month = Month.find_by(id: params[:id])
     @run = Run.new(month_id: params[:month_id])     #Run.find_by(id: params[:id])        = @month.runs.build
@@ -12,8 +17,7 @@ class MonthsController < ApplicationController
       redirect_to month_url(@month)
     else
       @months = Month.all
-      # @month = Month.new
-      render 'welcome/home'
+      render :index
     end
   end
 
