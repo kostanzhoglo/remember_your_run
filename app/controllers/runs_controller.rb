@@ -28,13 +28,21 @@ class RunsController < ApplicationController
 
   # /months/:month_id/runs/:id
   def update
-    @month = Month.find(params[:id])
+    # raise params.inspect
+    @month = Month.find(month_id: params[:month_id])
     @run = @month.runs.find(params[:id])
     if @run.update(run_params)
       redirect_to month_path(@month)
     else
       render :edit
     end
+  end
+
+  def destroy
+    @month = Month.find(params[:id])
+    @run = @month.runs.find(params[:id])
+    @run.destroy
+    redirect_to month_path(@run.month)
   end
 
 

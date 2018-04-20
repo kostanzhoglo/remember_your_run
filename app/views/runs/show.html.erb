@@ -1,4 +1,4 @@
-<h1>I bet you went for a run today.</h1>
+<h1>You Went For a Run on <%= @run.date %></h1>
 
 <table>
   <tr>
@@ -25,6 +25,7 @@
       <td><%= @run.format_rest_between %></td>
       <!-- <td><%#= @run.notes %></td> -->
       <td><%= link_to "Edit", edit_month_run_path(@run.month, @run) %> | Delete</td>
+      <!-- <td><%#= link_to "Delete", month_run_path(@run.month, @run), method: :delete %></td> -->
     </tr>
 </table>
 
@@ -32,3 +33,10 @@
 
 <strong><p>Notes</p></strong>
 <p><%= @run.notes %></p>
+
+<!--
+<li><%#= form_tag(month_run_path(@run.month, @run), method: :delete) do %>
+  <button type="submit"></button></td>
+<%# end %></li> -->
+
+ <%= button_to "Delete", month_run_path(@run.month, @run), method: "delete", class: "destroy" %>
