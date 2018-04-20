@@ -22,9 +22,10 @@ class RunsController < ApplicationController
   end
 
   def edit
-
+    @month = Month.find_by(id: params[:id])
+    @run = Run.find_by(id: params[:id])
   end
-  
+
 
   private
 
