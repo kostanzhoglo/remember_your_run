@@ -19,3 +19,16 @@
 div.field_with_errors input[type="text"]{
   border: 1px solid red;
 }
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid grey;
+}
+
+th, td {
+  padding: 4px;
+  text-align: center;
+}
