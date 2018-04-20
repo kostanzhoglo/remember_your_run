@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :runs
 
   resources :months do
-    resources :runs, except: :index
+    resources :runs
   end
 
 end

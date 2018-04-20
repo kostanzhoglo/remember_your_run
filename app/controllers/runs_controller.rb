@@ -13,7 +13,11 @@ class RunsController < ApplicationController
   end
 
   def index
-    @runs = Run.all
+    if params[:month_id]
+      @runs = Month.find(params[:month_id]).runs
+    else
+      @runs = Run.all
+    end
   end
 
   def show
