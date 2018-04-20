@@ -10,7 +10,7 @@
     <th>Number of Intervals</th>
     <th>Interval Length</th>
     <th>Rest Between Intervals</th>
-    <th>Notes</th>
+    <!-- <th>Notes</th> -->
     <th></th>
   </tr>
 
@@ -23,7 +23,12 @@
       <td><%= @run.number_intervals %></td>
       <td><%= @run.format_interval_length %></td>
       <td><%= @run.format_rest_between %></td>
-      <td><%= @run.notes %></td>
-      <td>Edit | Delete</td>
+      <!-- <td><%#= @run.notes %></td> -->
+      <td><%= link_to "Edit", edit_month_run_path(@run.month, @run) %> | Delete</td>
     </tr>
 </table>
+
+<br>
+
+<strong><p>Notes</p></strong>
+<p><%= @run.notes %></p>
