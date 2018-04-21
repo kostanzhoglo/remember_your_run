@@ -6,6 +6,12 @@ class Run < ApplicationRecord
   validates :duration, :interval_length, :rest_between_interval, presence: true
   validates_format_of :duration, :interval_length, :rest_between_interval, with: /\A[0-9]*:?[0-9]*:[0-9][0-9]\z/, message: "Input as time 00:00"
 
+    def self.fastest_pace
+      order("pace_per_mile ASC")
+    end
+
+
+
     def format_pace_per_mile
       seconds_per_mile = (total_seconds(self.duration) / self.distance).round
       Time.at(seconds_per_mile).utc.strftime("%_M:%S")

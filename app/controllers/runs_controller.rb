@@ -2,8 +2,11 @@ class RunsController < ApplicationController
 
   def create
     @month = Month.find(params[:month_id])
+    # @run.pace_per_mile = @run.format_pace_per_mile
     @run = @month.runs.build(run_params)
+    @run.assign_attributes({:pace_per_mile => @run.format_pace_per_mile})
     if @run.save
+
       redirect_to month_path(@month)
     else
       @month = Month.find(params[:month_id])
@@ -33,8 +36,10 @@ class RunsController < ApplicationController
   # /months/:month_id/runs/:id
   def update
     @month = Month.find(params[:month_id])
+    # @run.pace_per_mile = @run.format_pace_per_mile
     @run = @month.runs.find(params[:id])
     if @run.update(run_params)
+      @run.update_attributes({:pace_per_mile => @run.format_pace_per_mile})
       redirect_to month_path(@month)
     else
       render :edit
