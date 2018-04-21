@@ -3,7 +3,7 @@ class MonthsController < ApplicationController
   def index
     @months = Month.all
     @month = Month.new
-    @runs = Run.all
+    @runs = Run.fastest_pace
   end
 
   def show

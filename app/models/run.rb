@@ -7,7 +7,7 @@ class Run < ApplicationRecord
   validates_format_of :duration, :interval_length, :rest_between_interval, with: /\A[0-9]*:?[0-9]*:[0-9][0-9]\z/, message: "Input as time 00:00"
 
     def self.fastest_pace
-      sort_by("pace_per_mile ASC").limit(3)
+      Run.order(pace_per_mile: :asc).first(3)
     end
 
 
@@ -28,3 +28,10 @@ class Run < ApplicationRecord
     end
 
 end
+
+
+
+
+# def popular
+#   @dishes = Dish.most_popular
+# end
