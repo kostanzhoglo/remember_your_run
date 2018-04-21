@@ -10,8 +10,6 @@
     <th>Number of Intervals</th>
     <th>Interval Length</th>
     <th>Rest Between Intervals</th>
-    <!-- <th>Notes</th> -->
-    <th></th>
   </tr>
 
     <tr>
@@ -23,9 +21,6 @@
       <td><%= @run.number_intervals %></td>
       <td><%= @run.format_interval_length %></td>
       <td><%= @run.format_rest_between %></td>
-      <!-- <td><%#= @run.notes %></td> -->
-      <td><%= link_to "Edit", edit_month_run_path(@run.month, @run) %> | Delete</td>
-      <!-- <td><%#= link_to "Delete", month_run_path(@run.month, @run), method: :delete %></td> -->
     </tr>
 </table>
 
@@ -34,9 +29,5 @@
 <strong><p>Notes</p></strong>
 <p><%= @run.notes %></p>
 
-<!--
-<li><%#= form_tag(month_run_path(@run.month, @run), method: :delete) do %>
-  <button type="submit"></button></td>
-<%# end %></li> -->
-
- <%= button_to "Delete", month_run_path(@run.month, @run), method: "delete", class: "destroy" %>
+<%= button_to "Edit", edit_month_run_path(@run.month, @run), method: :get %>
+<%= button_to "Delete", month_run_path(@run.month, @run), method: "delete", class: "destroy" %>
