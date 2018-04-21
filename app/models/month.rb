@@ -4,7 +4,15 @@ class Month < ApplicationRecord
 
   validates :name, :year, presence: true
 
-  def month_distance
+  def self.fastest_pace
+
+  end
+
+  def self.most_mileage
+
+  end
+
+  def month_mileage
     self.runs.collect {|run| run.distance}.sum
   end
 
@@ -13,8 +21,12 @@ class Month < ApplicationRecord
   end
 
   def month_pace
-    seconds_per_mile = (month_total_run_time / month_distance).round
-    Time.at(seconds_per_mile).utc.strftime("%_M:%S")
+    if !self.runs.empty?
+      seconds_per_mile = (month_total_run_time / month_mileage).round
+      Time.at(seconds_per_mile).utc.strftime("%_M:%S")
+    else
+      "You haven't run yet this month!"
+    end
   end
 
 end
