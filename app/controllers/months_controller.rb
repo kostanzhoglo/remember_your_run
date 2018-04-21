@@ -3,6 +3,7 @@ class MonthsController < ApplicationController
   def index
     @months = Month.all
     @month = Month.new
+    @runs = Run.all
   end
 
   def show

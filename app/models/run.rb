@@ -7,7 +7,7 @@ class Run < ApplicationRecord
   validates_format_of :duration, :interval_length, :rest_between_interval, with: /\A[0-9]*:?[0-9]*:[0-9][0-9]\z/, message: "Input as time 00:00"
 
     def self.fastest_pace
-      self.all.order("pace_per_mile ASC").limit(3)
+      sort_by("pace_per_mile ASC").limit(3)
     end
 
 
