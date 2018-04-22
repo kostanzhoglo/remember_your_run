@@ -30,3 +30,17 @@ month
 
   Nested Resource
     -Runs are nested in terms of URLs under their parent Month
+
+#4 Create users and signup/login (AUTHENTICATION)
+
+What URLs do I need?
+  get /users/new      <!-- users#new -->
+    -form
+  post /users         <!-- users#create -->
+    -create user in the database
+
+
+  get /login
+    -form
+  post /sessions
+    -"log the user in"
