@@ -1,6 +1,7 @@
 class Run < ApplicationRecord
 
   belongs_to :month
+  belongs_to :user
 
   validates :date, :name, :distance, presence: true
   validates :duration, :interval_length, :rest_between_interval, presence: true
