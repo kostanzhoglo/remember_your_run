@@ -39,3 +39,7 @@ td {
   text-overflow: ellipsis;
   max-width: 135px;
 }
+
+#error_explanation {
+  color: red;
+}
