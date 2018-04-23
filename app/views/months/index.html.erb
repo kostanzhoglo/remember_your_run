@@ -12,6 +12,19 @@
 
 <br>
 
+<% if @month.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@month.errors.count, "error") %> stopped your new month from being created:</h2>
+
+    <ul>
+    <% @month.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
 <section class="main">
   <strong><h2>Start a New Running Month</h2></strong>
   <%= form_for @month do |f| %>
