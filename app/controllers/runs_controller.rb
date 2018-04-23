@@ -2,9 +2,12 @@ class RunsController < ApplicationController
 
   def create
     @month = Month.find(params[:month_id])
+    @current_user = User.find(session[:user_id])
     # @run.pace_per_mile = @run.format_pace_per_mile
+    # raise params.inspect
     @run = @month.runs.build(run_params)
-    @run.assign_attributes({:pace_per_mile => @run.format_pace_per_mile})
+    # raise @current_user.inspect
+    @run.assign_attributes({:pace_per_mile => @run.format_pace_per_mile, :user_id => @current_user.id})
     if @run.save
 
       redirect_to month_path(@month)
