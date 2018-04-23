@@ -5,7 +5,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    @user = User.new(user_params)
+    @user.save
+
+    redirect_to "/"
   end
+
+
+  private
+
+    def user_params
+      params.require(:user).permit(:email)
+    end
 
 end
