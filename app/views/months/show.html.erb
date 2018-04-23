@@ -1,5 +1,17 @@
 <h2>Create a New Run</h2>
 
+<% if @run.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@run.errors.count, "error") %> stopped your new run from being created:</h2>
+
+    <ul>
+    <% @run.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <!-- For NESTED RESOURCE... Below... ([@month, @run]).
 @month is parent, and @run is MAIN source for this form.
 Will send this action to... month_runs_path(@month) -->
