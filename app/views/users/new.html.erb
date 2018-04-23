@@ -16,11 +16,10 @@
 
 <%= form_for @user do |f| %>
   <%= f.label :email %>
-  <%= f.text_field :email%>
+  <%= f.text_field :email%><br>
   <%= f.label :password %>
-  <%= f.password_field :password, placeholder: "(hidden)" %>
-  <%= f.label :confirm_password %>
-  <%= f.password_field :password_confirmtation %>
-  <br>
+  <%= f.password_field :password, placeholder: "(hidden)" %><br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
   <%= f.submit %>
 <% end %>
