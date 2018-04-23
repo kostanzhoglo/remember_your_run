@@ -1,0 +1,8 @@
+<h1>Login to Remember Your Run</h1>
+
+<%= form_tag sessions_path do %>
+  <%= label_tag :email %>
+  <%= text_field_tag :email, '', placeholder: "Login with your email", size: 30 %>
+  <br>
+  <%= submit_tag "Log In" %>
+<% end %>
