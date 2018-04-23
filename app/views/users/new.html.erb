@@ -18,7 +18,9 @@
   <%= f.label :email %>
   <%= f.text_field :email%>
   <%= f.label :password %>
-  <%= f.text_field :password, placeholder: "(hidden)" %>
+  <%= f.password_field :password, placeholder: "(hidden)" %>
+  <%= f.label :confirm_password %>
+  <%= f.password_field :password_confirmtation %>
   <br>
   <%= f.submit %>
 <% end %>
