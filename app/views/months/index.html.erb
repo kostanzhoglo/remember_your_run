@@ -1,10 +1,7 @@
 <h1>Remember Your Run</h1>
 <h3>Running is healthy. Remember what you did!</h3><br>
 
-<h2>Fastest Overall Runs</h2>
-<% @runs.each.with_index(1) do |run, i| %>
-  <%= i %>). &ensp; <%= run.date %> &emsp; <%= run.name %> &emsp; <%= run.pace_per_mile %> per mile<br>
-<% end %>
+<h5><%= link_to "Fastest Overall Runs", runs_fastest_pace_path %></h5>
 
 <strong><h2>Your Previous Runs</h2></strong>
 <% @months.each do |month| %>

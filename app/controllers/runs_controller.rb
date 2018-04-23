@@ -53,6 +53,10 @@ class RunsController < ApplicationController
     redirect_to month_path(@run.month)
   end
 
+  def fastest_pace
+    @runs = Run.fastest_pace
+  end
+
 
   private
 

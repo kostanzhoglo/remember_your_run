@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :runs
   end
 
+  get "/fastest_pace", to: "runs#fastest_pace", as: "runs/fastest_pace"
+
 end
