@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'months#index'
   resources :users, only: [:new, :create]
+  get "/login", to: "sessions#new"
+  post "/sessions", to: "sessions#create"
   resources :runs
 
   resources :months do
