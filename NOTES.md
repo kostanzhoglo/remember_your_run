@@ -40,7 +40,7 @@ What URLs do I need?
     -create user in the database
 
 
-  get /login         <!-- sessions#new -->
+  get /login          <!-- sessions#new -->
     -form
-  post /sessions     <!-- sessions#create -->
+  post /sessions      <!-- sessions#create -->
     -"log the user in"
