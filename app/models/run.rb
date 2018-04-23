@@ -3,8 +3,7 @@ class Run < ApplicationRecord
   belongs_to :month
   belongs_to :user
 
-  validates :date, :name, :distance, presence: true
-  validates :duration, :interval_length, :rest_between_interval, presence: true
+  validates :date, :name, :distance, :duration, :interval_length, :rest_between_interval, presence: true
   validates_format_of :duration, :interval_length, :rest_between_interval, with: /\A[0-9]*:?[0-9]*:[0-9][0-9]\z/, message: "Input as time 00:00"
 
     def self.fastest_pace
@@ -14,6 +13,7 @@ class Run < ApplicationRecord
 
 
     def format_pace_per_mile
+      # raise self.inspect
       seconds_per_mile = (total_seconds(self.duration) / self.distance).round
       Time.at(seconds_per_mile).utc.strftime("%_M:%S")
     end
