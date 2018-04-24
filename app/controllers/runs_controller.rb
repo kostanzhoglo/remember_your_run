@@ -1,11 +1,10 @@
 class RunsController < ApplicationController
   before_action :authentication_required
+  before_action :set_month, only: [:create, :edit, :update, :destroy]
 
   def create
-    @month = Month.find(params[:month_id])
-    @current_user = User.find(session[:user_id])
     @run = @month.runs.build(run_params)
-    @run[:user_id] = @current_user.id
+    @run[:user_id] = current_user.id
     if @run.save
       @run[:pace_per_mile] = @run.format_pace_per_mile
       @run.update(run_params)
@@ -32,14 +31,10 @@ class RunsController < ApplicationController
   end
 
   def edit
-    @month = Month.find(params[:month_id])
     @run = Run.find_by(id: params[:id])
   end
 
-  # /months/:month_id/runs/:id
   def update
-    @month = Month.find(params[:month_id])
-    # @run.pace_per_mile = @run.format_pace_per_mile
     @run = @month.runs.find(params[:id])
     if @run.update(run_params)
       @run.update_attributes({:pace_per_mile => @run.format_pace_per_mile})
@@ -50,7 +45,6 @@ class RunsController < ApplicationController
   end
 
   def destroy
-    @month = Month.find(params[:month_id])
     @run = @month.runs.find(params[:id])
     @run.destroy
     redirect_to month_path(@run.month)
@@ -60,8 +54,10 @@ class RunsController < ApplicationController
     @runs = Run.fastest_pace
   end
 
-
   private
+    def set_month
+      @month = Month.find(params[:month_id])
+    end
 
     def run_params
       params.require(:run).permit(:date, :name, :distance, :duration, :pace_per_mile, :notes, :number_intervals, :interval_length, :rest_between_interval, :month_id)
