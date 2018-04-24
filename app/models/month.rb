@@ -1,17 +1,8 @@
 class Month < ApplicationRecord
-
   has_many :runs
   has_many :users, through: :runs
 
   validates :name, :year, presence: true
-
-  def self.fastest_pace
-
-  end
-
-  def self.most_mileage
-
-  end
 
   def month_mileage
     self.runs.collect {|run| run.distance}.sum
@@ -31,3 +22,10 @@ class Month < ApplicationRecord
   end
 
 end
+
+
+# def self.fastest_pace
+# end
+#
+# def self.most_mileage
+# end

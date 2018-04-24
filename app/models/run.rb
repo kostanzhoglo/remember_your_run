@@ -1,5 +1,4 @@
 class Run < ApplicationRecord
-
   belongs_to :month
   belongs_to :user
 
@@ -11,7 +10,6 @@ class Run < ApplicationRecord
     end
 
     def format_pace_per_mile
-      # raise self.inspect
       seconds_per_mile = (total_seconds(self.duration) / self.distance).round
       Time.at(seconds_per_mile).utc.strftime("%_M:%S")
     end
