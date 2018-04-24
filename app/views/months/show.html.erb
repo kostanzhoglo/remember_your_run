@@ -15,37 +15,8 @@
 <!-- For NESTED RESOURCE... Below... ([@month, @run]).
 @month is parent, and @run is MAIN source for this form.
 Will send this action to... month_runs_path(@month) -->
-
-
 <%= form_for([@month, @run]) do |f| %>
 <%= render 'runs/form', f: f %>
-
-  <!-- <%= f.label :date %>
-  <%= f.text_field :date, placeholder: (@run.errors.full_messages_for(:date).first || "Example 3/21"), size: "16"  %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name, placeholder: (@run.errors.full_messages_for(:name).first) %><br>
-
-  <%= f.label :distance %>
-  <%= f.text_field :distance, placeholder: (@run.errors.full_messages_for(:distance).first || "Example 2.7"), size: "40" %><br>
-
-  <%= f.label :duration %>
-  <%= f.text_field :duration, placeholder: (@run.errors.full_messages_for(:duration).last || "Example 28:45"), size: "40" %><br>
-
-  <%= f.label :number_intervals %>
-  <%= f.text_field :number_intervals, size: "40" %><br>
-
-  <%= f.label :interval_length %>
-  <%= f.text_field :interval_length, placeholder: (@run.errors.full_messages_for(:interval_length).last || "Example 1:15"), size: "40" %><br>
-
-  <%= f.label :rest_between_interval %>
-  <%= f.text_field :rest_between_interval, placeholder: (@run.errors.full_messages_for(:rest_between_interval).last || "Example 4:00"), size: "40" %><br>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes, size: "80" %>
-
-  <%= f.submit %>
-<% end %> -->
 
 <br><br>
 

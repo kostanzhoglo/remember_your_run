@@ -1,3 +1,15 @@
+<% if @run.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@run.errors.count, "error") %> stopped your new run from being created:</h2>
+
+    <ul>
+    <% @run.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for([@month, @run]) do |f| %>
 <%= render 'form', f: f %>
 
