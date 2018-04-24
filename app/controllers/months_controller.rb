@@ -2,18 +2,21 @@ class MonthsController < ApplicationController
   before_action :authentication_required
 
   def index
-    @months = Month.all
+    # @months = Month.all
+    @months = current_user.months
     @month = Month.new
   end
 
   def show
     @month = Month.find_by(id: params[:id])
-    @run = Run.new                           #(month_id: params[:month_id])     #Run.find_by(id: params[:id])        = @month.runs.build
-    @runs = @month.runs                      # OR, Run.all   --even though I know that's wrong.  The page rendered with that code.
+    @run = Run.new
+    @runs = @month.runs                
   end
 
   def create
+    @user = current_user
     @month = Month.new(month_params)
+    # @user.months << @month
     if @month.save
       redirect_to month_url(@month)
     else
