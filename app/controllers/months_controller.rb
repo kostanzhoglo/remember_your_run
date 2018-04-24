@@ -13,7 +13,6 @@ class MonthsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @month = Month.new(month_params)
     if @month.save
       redirect_to month_url(@month)
