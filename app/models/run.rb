@@ -10,8 +10,6 @@ class Run < ApplicationRecord
       Run.order(pace_per_mile: :asc).first(3)
     end
 
-
-
     def format_pace_per_mile
       # raise self.inspect
       seconds_per_mile = (total_seconds(self.duration) / self.distance).round
@@ -29,10 +27,3 @@ class Run < ApplicationRecord
     end
 
 end
-
-
-
-
-# def popular
-#   @dishes = Dish.most_popular
-# end

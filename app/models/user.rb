@@ -13,9 +13,15 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex
     end
   end
-
-
 end
+
+  # def self.my_fastest_runs
+  #   # self.runs.order(pace_per_mile: :asc).first(3)
+  #   where("id IN (?)"), current_user(:id)runs.order(pace_per_mile: :asc).first(3)
+  # end
+
+
+
 
 
 
