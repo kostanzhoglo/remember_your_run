@@ -6,19 +6,27 @@ class SessionsController < ApplicationController
   def create
     # When they login via OAuth
     if auth_hash = request.env["omniauth.auth"]
-      oauth_email = request.env["omniauth.auth"]["info"]["email"]
-      if user = User.find_by(email: oauth_email)
-        session[:user_id] = user.id
-        redirect_to root_path
-      else
-        user = User.create(email: oauth_email, password: SecureRandom.hex)
-        if user.save
-          session[:user_id] = user.id
-          redirect_to root_path
-        else
-          raise user.errors.full_messages.inspect
-        end
-      end
+      user = User.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = user.id
+
+      redirect_to root_path
+
+
+      # oauth_email = request.env["omniauth.auth"]["info"]["email"]
+      # if user = User.find_by(email: oauth_email)
+      #   session[:user_id] = user.id
+      #   redirect_to root_path
+      # else
+      #   user = User.create(email: oauth_email, password: SecureRandom.hex)
+      #   if user.save
+      #     session[:user_id] = user.id
+      #     redirect_to root_path
+      #   else
+      #     raise user.errors.full_messages.inspect
+      #   end
+      # end
+
+
     else
     # Normal LOCAL login
       user = User.find_by(email: params[:email])
