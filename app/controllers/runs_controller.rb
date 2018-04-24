@@ -1,4 +1,5 @@
 class RunsController < ApplicationController
+  before_action :authentication_required
 
   def create
     @month = Month.find(params[:month_id])

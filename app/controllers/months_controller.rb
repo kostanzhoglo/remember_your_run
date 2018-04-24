@@ -1,4 +1,5 @@
 class MonthsController < ApplicationController
+  before_action :authentication_required
 
   def index
     @months = Month.all
