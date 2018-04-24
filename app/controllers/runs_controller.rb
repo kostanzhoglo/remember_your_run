@@ -1,6 +1,11 @@
 class RunsController < ApplicationController
   before_action :authentication_required
 
+  def new
+    @user = current_user
+    @run = Run.new
+  end
+
   def create
     @month = Month.find(params[:month_id])
     @current_user = User.find(session[:user_id])
