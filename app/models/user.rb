@@ -15,14 +15,12 @@ class User < ApplicationRecord
   end
 end
 
+
+
   # def self.my_fastest_runs
   #   # self.runs.order(pace_per_mile: :asc).first(3)
   #   where("id IN (?)"), current_user(:id)runs.order(pace_per_mile: :asc).first(3)
   # end
-
-
-
-
 
 
 # ORIGINAL code from sessions_controller#create. It's refactored above. If you want to see how and why to refactor it, find Todo MVC Youtube Review #7 starting at 38:00.
