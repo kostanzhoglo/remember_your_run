@@ -1,11 +1,6 @@
 class RunsController < ApplicationController
   before_action :authentication_required
 
-  def new
-    @user = current_user
-    @run = Run.new
-  end
-
   def create
     @month = Month.find(params[:month_id])
     @current_user = User.find(session[:user_id])
@@ -23,10 +18,11 @@ class RunsController < ApplicationController
   end
 
   def index
+    @user = current_user
     if params[:month_id]
-      @runs = Month.find(params[:month_id]).runs
+      @runs = @user.months.find(params[:month_id]).runs
     else
-      @runs = Run.all
+      @runs = @user.runs.all
     end
   end
 
