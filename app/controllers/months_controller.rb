@@ -18,7 +18,7 @@ class MonthsController < ApplicationController
     if @month.save
       redirect_to month_url(@month)
     else
-      @months = Month.all
+      @months = current_user.months
       render :index
     end
   end
