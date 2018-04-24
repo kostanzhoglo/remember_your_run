@@ -16,10 +16,11 @@
 @month is parent, and @run is MAIN source for this form.
 Will send this action to... month_runs_path(@month) -->
 
-<%= render 'runs/form' %>
 
 <%= form_for([@month, @run]) do |f| %>
-  <%= f.label :date %>
+<%= render 'runs/form', f: f %>
+
+  <!-- <%= f.label :date %>
   <%= f.text_field :date, placeholder: (@run.errors.full_messages_for(:date).first || "Example 3/21"), size: "16"  %>
 
   <%= f.label :name %>
@@ -44,7 +45,7 @@ Will send this action to... month_runs_path(@month) -->
   <%= f.text_field :notes, size: "80" %>
 
   <%= f.submit %>
-<% end %>
+<% end %> -->
 
 <br><br>
 

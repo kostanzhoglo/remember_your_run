@@ -1,1 +1,4 @@
-<%= render 'form' %>
+<%= form_for([@month, @run]) do |f| %>
+<%= render 'form', f: f %>
+
+<% end %>
