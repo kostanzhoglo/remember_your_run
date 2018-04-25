@@ -13,14 +13,16 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex
     end
   end
+
+  def self.my_fastest_runs
+    self.where(id: current_user.id).runs.order(pace_per_mile: :asc).first(3)
+    raise self.inspect
+  end
 end
 
 
 
-  # def self.my_fastest_runs
-  #   # self.runs.order(pace_per_mile: :asc).first(3)
-  #   where("id IN (?)"), current_user(:id)runs.order(pace_per_mile: :asc).first(3)
-  # end
+
 
 
 # ORIGINAL code from sessions_controller#create. It's refactored above. If you want to see how and why to refactor it, find Todo MVC Youtube Review #7 starting at 38:00.

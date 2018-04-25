@@ -14,13 +14,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def fastest_runs
+    @runs = User.my_fastest_runs
+  end
+
   private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
 end
-
-# def fastest_runs
-#   @runs = current_user.my_fastest_runs
-# end
