@@ -16,7 +16,6 @@ class UsersController < ApplicationController
 
   def my_fastest_runs
     @runs = current_user.runs.sort_by {|run| run.pace_per_mile}.first(3)
-
   end
 
   private

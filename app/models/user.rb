@@ -14,10 +14,6 @@ class User < ApplicationRecord
     end
   end
 
-  # def self.my_fastest_runs
-  #   raise self.ids.inspect
-  #   self.where(id: current_user.id).runs.order(pace_per_mile: :asc).first(3)
-  # end
 end
 
 
