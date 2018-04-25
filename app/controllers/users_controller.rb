@@ -14,8 +14,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def fastest_runs
-    @runs = User.my_fastest_runs
+  def my_fastest_runs
+    @runs = current_user.runs
   end
 
   private
