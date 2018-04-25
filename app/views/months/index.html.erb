@@ -12,13 +12,13 @@
 <% end %>
 
 <br>
-<%= render partial: 'runs/errors', locals: { model: @month } %>
+<%= render 'runs/errors', model: @month %>
 
 <section class="main">
   <strong><h2>Start a New Running Month</h2></strong>
   <%= form_for @month do |f| %>
     <%= f.label :month%>
-    <%= f.text_field :name, placeholder: (@month.errors.full_messages_for(:name).first) %>  
+    <%= f.text_field :name, placeholder: (@month.errors.full_messages_for(:name).first) %>
 
     <%= f.label :year %>
     <%= f.text_field :year, placeholder: (@month.errors.full_messages_for(:year).first) %><br>

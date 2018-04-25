@@ -1,6 +1,6 @@
 <h1>Signup for Remember Your Run!</h1>
 
-<%= render partial: 'runs/errors', locals: { model: @user } %>
+<%= render 'runs/errors', model: @user %>
 
 <%= form_for @user do |f| %>
   <%= f.label :email %>
