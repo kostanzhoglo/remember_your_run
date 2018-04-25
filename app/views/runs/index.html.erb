@@ -13,8 +13,6 @@
   <th>Notes</th>
 </tr>
 
-
-
 <% @runs.each do |run| %>
   <tr>
     <td><%= link_to run.date, month_run_path(run.month, run) %></td>
