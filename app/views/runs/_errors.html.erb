@@ -1,7 +1,7 @@
 
 <% if model.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(model.errors.count, "error") %> stopped your run from being created:</h2>
+    <h2><%= pluralize(model.errors.count, "error") %> stopped your progress:</h2>
 
     <ul>
     <% model.errors.full_messages.each do |msg| %>
