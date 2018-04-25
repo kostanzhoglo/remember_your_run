@@ -2,28 +2,28 @@
 
 <table>
   <tr>
-    <th>Name</th>
     <th>Date</th>
+    <th>Name</th>
     <th>Distance (Miles)</th>
     <th>Time</th>
     <th>Pace / Mile</th>
-    <th>Notes</th>
     <th>Number of Intervals</th>
     <th>Interval Length</th>
     <th>Rest Between Intervals</th>
+    <th>Notes</th>
   </tr>
 
   <% @runs.each do |run| %>
     <tr>
+      <td><%= link_to run.date, month_run_path(run.month, run) %></td>
       <td><%= run.name %></td>
-      <td><%= link_to run.date, run_path(run) %></td>
       <td><%= run.distance %></td>
       <td><%= run.duration %></td>
-      <td><%= run.pace_per_mile %></td>
-      <td><%= run.notes %></td>
+      <td><%= run.format_pace_per_mile %></td>
       <td><%= run.number_intervals %></td>
-      <td><%= run.interval_length %></td>
-      <td><%= run.rest_between_interval %></td>
+      <td><%= run.format_interval_length %></td>
+      <td><%= run.format_rest_between %></td>
+      <td><%= run.notes %></td>
     </tr>
   <% end %>
 </table>
