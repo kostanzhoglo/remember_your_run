@@ -5,11 +5,18 @@ class RunsController < ApplicationController
   def create
     @run = @month.runs.build(run_params)
     @run[:user_id] = current_user.id
+    @run[:pace_per_mile] = @run.format_pace_per_mile
     if @run.save
-      @run[:pace_per_mile] = @run.format_pace_per_mile
-      @run.update(run_params)
+      # @run[:pace_per_mile] = @run.format_pace_per_mile
+      # @run.update(run_params)
       redirect_to month_path(@month)
     else
+      # if @run.distance == 99999999
+      #   flash[:error] = "Make sure to enter a number for Distance"
+      # end
+      # if @run.duration == "99:59:59"
+      #   flash[:error] = "Make sure to enter a time (example 40:00) for Duration."
+      # end
       @month = Month.find(params[:month_id])
       @runs = @month.runs
       render 'months/show'
@@ -52,6 +59,10 @@ class RunsController < ApplicationController
 
   def fastest_pace
     @runs = Run.fastest_pace
+  end
+
+  def longest_runs
+    @runs = Run.longest_runs
   end
 
   private

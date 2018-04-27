@@ -1,0 +1,4 @@
+<h2>Longest Overall Runs</h2>
+<% @runs.each.with_index(1) do |run, i| %>
+  <%= i %>). &ensp; <%= run.date %> &emsp; <%= run.name %> &emsp; <%= run.distance %><br>
+<% end %>

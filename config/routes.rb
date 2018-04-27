@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   get "/fastest_pace", to: "runs#fastest_pace", as: "runs/fastest_pace"
   get "/my_fastest_runs", to: "users#my_fastest_runs", as: "user/fastest_runs"
+  get "/longest_runs", to: "runs#longest_runs", as: "runs/longest_runs"
 
 end
