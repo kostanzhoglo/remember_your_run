@@ -2,7 +2,7 @@ class MonthsController < ApplicationController
   before_action :authentication_required
 
   def index
-    @months = current_user.months
+    @months = current_user.months.uniq
     @month = Month.new
   end
 
