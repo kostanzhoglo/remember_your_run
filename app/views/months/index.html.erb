@@ -7,8 +7,10 @@
 
 <strong><h2>Your Previous Runs</h2></strong>
 <% @months.each do |month| %>
-  <%= link_to(month) do %>
+  <%= link_to(month, {:class => "month_info"}) do %>
     <h3><%= month.name %> <%= month.year %></h3>
+    <div id="month_mileage-<%= month.id %>"></div>
+    <div id="avg_pace-<%= month.id %>"></div>
   <% end %>
 <% end %>
 
