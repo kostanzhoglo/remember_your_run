@@ -12,5 +12,8 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+
+
+
+// Old line 15... // = require turbolinks      (but turbolinks doesn't play well with others)
