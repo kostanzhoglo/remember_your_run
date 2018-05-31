@@ -22,6 +22,11 @@ class MonthsController < ApplicationController
     end
   end
 
+  def info
+    month = Month.find(params[:id])
+    render plain: month.month_pace
+  end
+
   private
 
     def month_params
