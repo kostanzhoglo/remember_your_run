@@ -9,12 +9,10 @@
 
 <strong><h2>Your Previous Runs</h2></strong>
 <% @months.each do |month| %>
-  <a href="#" class="js-month-info" data-id="<%= month.id %>"></a>
-  <!-- <%#= link_to(month, {:class => "js-month_info"} ) do %> -->
-    <h3><%= month.name %> <%= month.year %></h3>
+  <h3><a href="#" class="js-month-info" data-id="<%= month.id %>"><%= "#{month.name} #{month.year}" %></a></h3>
     <div id="month_mileage-<%= month.id %>"></div>
     <div id="avg_pace-<%= month.id %>"></div>
-  <% end %>
+  <%# end %>
 <% end %>
 
 <br>
