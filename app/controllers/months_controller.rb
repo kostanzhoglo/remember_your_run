@@ -30,7 +30,7 @@ class MonthsController < ApplicationController
     # month = Month.find(params[:id])
     # render json: month
     # .to_json(include: :runs)
-    # plain: month.month_pace
+    # render plain: month.month_pace
   # end
 
   private
