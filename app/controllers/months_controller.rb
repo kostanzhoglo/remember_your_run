@@ -10,6 +10,10 @@ class MonthsController < ApplicationController
     @month = Month.find_by(id: params[:id])
     @run = Run.new
     @runs = @month.runs
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @month }  # because of AMS.
+    end
   end
 
   def create
@@ -22,10 +26,12 @@ class MonthsController < ApplicationController
     end
   end
 
-  def info
-    month = Month.find(params[:id])
-    render plain: month.month_pace
-  end
+  # def info
+    # month = Month.find(params[:id])
+    # render json: month
+    # .to_json(include: :runs)
+    # plain: month.month_pace
+  # end
 
   private
 
