@@ -7,12 +7,20 @@ $(function () {
       // $(".avg_pace-" + id).html(data);
       // $(".month_name-" + id).text(data["name"]);
       $(".month_goal-" + id).html(data["goal"]);
-      $.each(data, function(key, value) {
-        console.log(key + " : " + value)
+      let output = "";
+      $.each(data["runs"], function(key, value) {
+        output += " " + data["goal"]
+
+        console.log(key + " : " + value.distance)
+        console.log(key + " : " + value.duration)
+        console.log(key + " : " + value.date)
+        console.log(key + " : " + value.name)
+        console.log(key + " : " + value.pace_per_mile)
+
       });
+      $(".test").text(output);
 
-
-      // $(".month_run_name" + id).text(data["run"]["name"]);
+      // $(".month_run_name" + id).text(data["runs"]["name"]);
     });
 
   });
