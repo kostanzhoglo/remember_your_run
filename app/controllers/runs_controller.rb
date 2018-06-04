@@ -33,7 +33,7 @@ class RunsController < ApplicationController
   end
 
   def show
-    # @month = Month.find_by(id: params[:id])
+    @month = Month.find_by(id: params[:id])
     @run = Run.find_by(id: params[:id])
     respond_to do |format|
       format.html { render :show }
