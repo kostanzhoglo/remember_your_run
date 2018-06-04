@@ -1,5 +1,7 @@
 <h1>You Went For a Run on <%= @run.date %></h1>
 
+<a href="#" class="js-next-run" data-id="<%=@run.id%>">Next Run</a>
+
 <table>
   <tr>
     <th>Date</th>
@@ -13,14 +15,14 @@
   </tr>
 
     <tr>
-      <td><%= @run.date %></td>
-      <td><%= @run.name %></td>
-      <td><%= @run.distance %></td>
-      <td><%= @run.duration %></td>
-      <td><%= @run.format_pace_per_mile %></td>
-      <td><%= @run.number_intervals %></td>
-      <td><%= @run.format_interval_length %></td>
-      <td><%= @run.format_rest_between %></td>
+      <td id="runDate"><%= @run.date %></td>
+      <td id="runName"><%= @run.name %></td>
+      <td id="runDistance"><%= @run.distance %></td>
+      <td id="runDuration"><%= @run.duration %></td>
+      <td id="runPacePerMile"><%= @run.format_pace_per_mile %></td>
+      <td id="runNumberIntervals"><%= @run.number_intervals %></td>
+      <td id="runIntervalLength"><%= @run.format_interval_length %></td>
+      <td id="runRestBetween"><%= @run.format_rest_between %></td>
     </tr>
 </table>
 
