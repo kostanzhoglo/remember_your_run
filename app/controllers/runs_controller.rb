@@ -33,8 +33,8 @@ class RunsController < ApplicationController
   end
 
   def show
-    @month = Month.find_by(id: params[:id])
-    @run = Run.find_by(id: params[:id])
+    @month = current_user.months.find_by(id: params[:id])
+    @run = current_user.runs.find_by(id: params[:id])
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @run }  # because of AMS.

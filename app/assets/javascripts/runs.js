@@ -4,18 +4,18 @@
 
 $(function () {
   $(".js-next-run").on("click", function() {
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/months/4" + nextId + ".json", function(data) {
-      var run = data;
-      $(".runDate").text(run["date"]);
-      $(".runName").text(run["name"]);
+    var nextId = parseInt($(".js-next-run").attr("data-id")) + 1;
+    $.get("/runs/" + nextId + ".json", function(data) {
+      // var run = data;
+      $("#runDate").text(data["date"]);
+      $("#runName").text(data["name"]);
       $(".runDistance").text(run["distance"]);
-      $(".runPacePerMile").text(run["pace_per_mile"]);
-      $(".runNumberIntervals").text(run["number_intervals"]);
-      $(".runIntervalLength").text(run["interval_length"]);
-      $(".runRestBetween").text(run["rest_between_interval"]);
+      // $(".runPacePerMile").text(run["pace_per_mile"]);
+      // $(".runNumberIntervals").text(run["number_intervals"]);
+      // $(".runIntervalLength").text(run["interval_length"]);
+      // $(".runRestBetween").text(run["rest_between_interval"]);
       // re-set the id to current on the link
-      $(".js-next-run").attr("data-id", run["id"]);
+      $(".js-next-run").attr("data-id", data["id"]);
     });
   });
 });

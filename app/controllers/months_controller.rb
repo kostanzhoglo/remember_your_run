@@ -7,7 +7,7 @@ class MonthsController < ApplicationController
   end
 
   def show
-    @month = Month.find_by(id: params[:id])
+    @month = current_user.months.find_by(id: params[:id])
     @run = Run.new
     @runs = @month.runs
     respond_to do |format|
