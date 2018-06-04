@@ -33,12 +33,19 @@ class RunsController < ApplicationController
   end
 
   def show
-    @month = current_user.months.find_by(id: params[:id])
+    @month = current_user.months.find_by(id: params[:month_id])
     @run = current_user.runs.find_by(id: params[:id])
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @run }  # because of AMS.
     end
+  end
+
+  #'/months/:month_id/runs/:id/next'         eventual get request...
+
+  def next
+    @month = current_user.months.find_by(id: params[:month_id])
+    # @next_run = current_user.next_run(@month, @run???)
   end
 
   def edit
