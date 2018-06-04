@@ -9,13 +9,13 @@ $(function () {
       $(".month_goal-" + id).html(data["goal"]);
       let output = "";
       $.each(data["runs"], function(key, value) {
-        output += " " + data["goal"]
+        // output += " " + data["goal"]
 
-        console.log(key + " : " + value.distance)
-        console.log(key + " : " + value.duration)
-        console.log(key + " : " + value.date)
-        console.log(key + " : " + value.name)
-        console.log(key + " : " + value.pace_per_mile)
+        console.log("Run " + (key + 1) + " distance: " + value.distance)
+        console.log("Run " + (key + 1) + " time: " + value.duration)
+        console.log("Run " + (key + 1) + " date:" + value.date)
+        console.log("Run " + (key + 1) + " name:" + value.name)
+        $(".run_container").append("  Run " + (key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
 
       });
       $(".test").text(output);
@@ -24,6 +24,14 @@ $(function () {
     });
 
   });
+
+  function Run(date, name, distance, duration, pace_per_mile) {
+    this.date = date
+    this.name = name
+    this.distance = distance
+    this.duration = duration
+    this.pace_per_mile = pace_per_mile
+  }
 
 });
 
