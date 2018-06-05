@@ -15,8 +15,8 @@ $(function () {
       // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
-        console.log(newRun)
-
+        let runRowHtml = newRun.formatRuns()
+        $('#month_container-' + id).append(runRowHtml)
         // $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
         // $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
         // $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
@@ -24,6 +24,7 @@ $(function () {
         // $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
 
       });
+      $('#month_container-' + id).append(`</table>`)
     });
   });
 });
@@ -43,8 +44,19 @@ function Run(run) {
 
 Run.prototype.formatRuns = function() {
   let runHtml = `
-
+    <tr>
+      <td>${this.date}</td>
+      <td>${this.name}</td>
+      <td>${this.distance}</td>
+      <td>${this.duration}</td>
+      <td>${this.pace_per_mile}</td>
+      <td>${this.number_intervals}</td>
+      <td>${this.interval_length}</td>
+      <td>${this.rest_between_interval}</td>
+      <td>${this.notes}</td>
+    </tr>
   `
+  return runHtml
 }
 
 let monthTable = function() {
@@ -62,7 +74,6 @@ let monthTable = function() {
         <th>Rest Between Intervals</th>
         <th>Notes</th>
       </tr>
-    </table>
     `)
 }
 
@@ -90,3 +101,7 @@ let monthTable = function() {
 //     })
 // })
 // }
+
+// Put these back in later.
+      // <th>${this.notes}</th>
+      // <th>Notes</th>
