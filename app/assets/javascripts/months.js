@@ -1,6 +1,8 @@
 $(function () {
 
-  $(".js-month-info").on('click', function() {
+  $(".js-month-info").on('click', function(e) {
+    e.preventDefault()
+    history.pushState(null, null, "months")
     var id = $(this).data("id");
     $.get(`/months/${id}.json`, function(data) {
 
@@ -17,6 +19,7 @@ $(function () {
         let newRun = new Run(run)
         let runRowHtml = newRun.formatRuns()
         $('#month_container-' + id).append(runRowHtml)
+
         // $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
         // $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
         // $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
