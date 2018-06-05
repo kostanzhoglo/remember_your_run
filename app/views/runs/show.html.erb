@@ -29,7 +29,7 @@
 <br>
 
 <strong><p>Notes</p></strong>
-<p><%= @run.notes %></p>
+<p id="runNotes"><%= @run.notes %></p>
 
 <%= button_to "Edit", edit_month_run_path(@run.month, @run), method: :get %>
 <%= button_to "Delete", month_run_path(@run.month, @run), method: "delete", class: "destroy" %>

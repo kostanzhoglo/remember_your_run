@@ -13,6 +13,7 @@ $(function () {
       $("#runNumberIntervals").text(run["number_intervals"]);
       $("#runIntervalLength").text(run["interval_length"]);
       $("#runRestBetween").text(run["rest_between_interval"]);
+      $("#runNotes").text(run["notes"]);
       // re-set the id to current on the link
       $(".js-next-run").attr("data-id", run["id"]);
     });
