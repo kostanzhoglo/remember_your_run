@@ -11,11 +11,11 @@ $(function () {
       $.each(data["runs"], function(key, value) {
         // output += " " + data["goal"]
 
-        console.log("Run " + (key + 1) + " distance: " + value.distance)
-        console.log("Run " + (key + 1) + " time: " + value.duration)
-        console.log("Run " + (key + 1) + " date:" + value.date)
-        console.log("Run " + (key + 1) + " name:" + value.name)
-        $("#run_container-" + id).append("  Run " + (key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
+        $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
+        $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
+        $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
+        $("#run_name-" + id).append((key + 1) + " name:" + value.name + "<br>")
+        $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
 
       });
       $(".test").text(output);

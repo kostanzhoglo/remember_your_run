@@ -8,16 +8,18 @@
 <strong><h2>Your Previous Runs</h2></strong>
 <% @months.each do |month| %>
   <h3><a href="#" class="js-month-info" data-id="<%= month.id %>"><%= "#{month.name} #{month.year}" %></a></h3>
+    <div class="month_goal-<%= month.id %>"></div>
     <div class="month_mileage-<%= month.id %>"></div>
     <!-- <div class="avg_pace-<%= month.id %>"></div> -->
     <!-- <div class="month_name-<%= month.id %>"></div> -->
-    <div class="month_goal-<%= month.id %>"></div>
-    <div class="month_run_name-<%= month.id %>"></div>
+    <div id="run_distance-<%= month.id %>"></div>
+    <div id="run_duration-<%= month.id %>"></div>
+    <div id="run_date-<%= month.id %>"></div>
+    <div id="run_name-<%= month.id %>"></div>
     <!-- Container where the run info will populate.  but the formatting is done from the .js file.  -->
     <div id="run_container-<%= month.id %>"></div>
 <% end %>
 
-<!-- <div class="run_container"></div> -->
 <div class="test"></div>
 
 <br>
