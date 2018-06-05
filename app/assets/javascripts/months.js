@@ -18,9 +18,7 @@ $(function () {
         $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
 
       });
-      $(".test").text(output);
 
-      // $(".month_run_name" + id).text(data["runs"]["name"]);
     });
 
   });
