@@ -11,7 +11,7 @@ class MonthsController < ApplicationController
     @run = Run.new
     @runs = @month.runs
     respond_to do |format|
-      format.html { render :show }
+      format.html 
       format.json { render json: @month }  # because of AMS.
     end
   end

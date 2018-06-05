@@ -23,15 +23,15 @@
 //
 //   });
 
-  function Run(date, name, distance, duration, pace_per_mile) {
-    this.date = date
-    this.name = name
-    this.distance = distance
-    this.duration = duration
-    this.pace_per_mile = pace_per_mile
-  }
+  // function Run(date, name, distance, duration, pace_per_mile) {
+  //   this.date = date
+  //   this.name = name
+  //   this.distance = distance
+  //   this.duration = duration
+  //   this.pace_per_mile = pace_per_mile
+  // }
 
-});
+// });
 
 $(() => {
   bindClickHandlers()
@@ -40,14 +40,10 @@ $(() => {
 const bindClickHandlers = () => {
   $(".js-month-info").on('click', (e) => {
     e.preventDefault();
-
+    var id = $(this).data("id")
+    $.get("/months/" + id + ".json", function(data) {
+    // fetch(`/months/${id}.json`)
+    //   .then(res => res.json())
+    //   .then(data => (data))
   })
 }
-
-
-// $(function () {
-//   $(".js-month-info").on('click', function(e) {
-//     alert("you clicked this link")
-//     e.preventDefault();
-//   });
-// })
