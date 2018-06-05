@@ -8,8 +8,9 @@ $(function () {
       //   .then(res => res.json())
       //   .then(data => (data))
 
-      $('#run_container-' + id).html('')
+      $('#month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
+      monthTable();
 
       // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
@@ -38,6 +39,31 @@ function Run(run) {
   this.interval_length = run.interval_length
   this.rest_between_interval = run.rest_between_interval
   this.notes = run.notes
+}
+
+Run.prototype.formatRuns = function() {
+  let runHtml = `
+
+  `
+}
+
+let monthTable = function() {
+  var id = $(".js-month-info").data("id");
+  $('#month_container-' + id).append(`
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Name</th>
+        <th>Distance (Miles)</th>
+        <th>Time</th>
+        <th>Pace / Mile</th>
+        <th>Number of Intervals</th>
+        <th>Interval Length</th>
+        <th>Rest Between Intervals</th>
+        <th>Notes</th>
+      </tr>
+    </table>
+    `)
 }
 
 
