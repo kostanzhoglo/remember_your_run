@@ -2,19 +2,19 @@ $(function () {
 
   $(".js-month-info").on('click', function() {
     var id = $(this).data("id");
-
     $.get(`/months/${id}.json`, function(data) {
 
       // fetch(`/months/${id}.json`)
       //   .then(res => res.json())
       //   .then(data => (data))
+
       $('#run_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
 
       // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
-        console.log(run)
-      // })
+        let newRun = new Run(run)
+        console.log(newRun)
 
         // $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
         // $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
