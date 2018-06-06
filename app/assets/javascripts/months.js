@@ -6,7 +6,7 @@ $(function () {
     var id = $(this).data("id");
     $.get(`/months/${id}.json`, function(data) {
 
-      $('#month_container-' + id).html('')
+      $('.month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
       monthTable();
 
@@ -14,10 +14,10 @@ $(function () {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
         let runRowHtml = newRun.formatRuns()
-        // $('#month_container-' + id).append(runRowHtml)
+        // $('.month_container-' + id).append(runRowHtml)
         $('.myTable tr:last').after(runRowHtml)
       });
-      $('#month_container-' + id).append(`</table>`)
+      $('.month_container-' + id).append(`</table>`)
     });
   });
 });
@@ -54,7 +54,7 @@ Run.prototype.formatRuns = function() {
 
 let monthTable = function() {
   var id = $(".js-month-info").data("id");
-  $('#month_container-' + id).append(`
+  $('.month_container-' + id).append(`
     <table class="myTable">
       <tr>
         <th>Date</th>
