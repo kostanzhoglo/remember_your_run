@@ -5,6 +5,7 @@ $(function () {
     // console.log(nextId)
     $.get("/runs/" + nextId + ".json", function(run) {
       // var run = data;
+      $("#runMessage").text(`You Went for a Run on ${run["date"]}`);
       $("#runDate").text(run["date"]);
       $("#runName").text(run["name"]);
       $("#runDistance").text(run["distance"]);
