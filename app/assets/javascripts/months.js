@@ -6,10 +6,6 @@ $(function () {
     var id = $(this).data("id");
     $.get(`/months/${id}.json`, function(data) {
 
-      // fetch(`/months/${id}.json`)
-      //   .then(res => res.json())
-      //   .then(data => (data))
-
       $('#month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
       monthTable();
@@ -18,14 +14,8 @@ $(function () {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
         let runRowHtml = newRun.formatRuns()
-        $('#month_container-' + id).append(runRowHtml)
-
-        // $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
-        // $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
-        // $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
-        // $("#run_name-" + id).append((key + 1) + " name:" + value.name + "<br>")
-        // $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
-
+        // $('#month_container-' + id).append(runRowHtml)
+        $('.myTable tr:last').after(runRowHtml)
       });
       $('#month_container-' + id).append(`</table>`)
     });
@@ -65,7 +55,7 @@ Run.prototype.formatRuns = function() {
 let monthTable = function() {
   var id = $(".js-month-info").data("id");
   $('#month_container-' + id).append(`
-    <table>
+    <table class="myTable">
       <tr>
         <th>Date</th>
         <th>Name</th>
@@ -105,6 +95,8 @@ let monthTable = function() {
 // })
 // }
 
-// Put these back in later.
-      // <th>${this.notes}</th>
-      // <th>Notes</th>
+// $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
+// $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
+// $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
+// $("#run_name-" + id).append((key + 1) + " name:" + value.name + "<br>")
+// $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
