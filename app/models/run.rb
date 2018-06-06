@@ -45,7 +45,8 @@ class Run < ApplicationRecord
     end
 
     def next
-      Run.where("id > ?", id).first
+      user = self.user
+      Run.where("id > ? AND user_id = ?", id, user.id).first
     end
 
     class InputError < StandardError
