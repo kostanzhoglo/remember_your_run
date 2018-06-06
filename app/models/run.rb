@@ -46,7 +46,12 @@ class Run < ApplicationRecord
 
     def next
       user = self.user
-      Run.where("id > ? AND user_id = ?", id, user.id).first
+      nextRun = Run.where("id > ? AND user_id = ?", id, user.id).first
+      if nextRun
+        nextRun
+      else
+        Run.where("user_id = ?", user.id).first
+      end
     end
 
     class InputError < StandardError
