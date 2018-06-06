@@ -19,6 +19,13 @@ $(function () {
       $(".js-next-run").attr("data-id", run["id"]);
     });
   });
+});
 
+
+$(function () {
+  $(document).on('click', "js-next-run", function () {
+    var nextId = parseInt($(".js-next-run").attr("data-id"))
+    $.get(`/runs/${nextId}.json`)
+  })
 
 });

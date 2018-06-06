@@ -38,7 +38,7 @@ function Run(run) {
 Run.prototype.formatRuns = function() {
   let runHtml = `
     <tr>
-      <td>${this.date}</td>
+      <td><a href="/runs/${this.id}">${this.date}</a></td>
       <td>${this.name}</td>
       <td>${this.distance}</td>
       <td>${this.duration}</td>
