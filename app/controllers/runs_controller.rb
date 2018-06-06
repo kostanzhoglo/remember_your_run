@@ -44,6 +44,8 @@ class RunsController < ApplicationController
   #'/months/:month_id/runs/:id/next'         eventual get request...
 
   def next
+    @next_run = @run.next
+    render json: @next_run
     @month = current_user.months.find_by(id: params[:month_id])
     # @next_run = current_user.next_run(@month, @run???)
   end

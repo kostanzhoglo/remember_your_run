@@ -44,6 +44,10 @@ class Run < ApplicationRecord
       Time.at(seconds).utc.strftime("%_M:%S")
     end
 
+    def next
+      Run.where("id > ?", id).first
+    end
+
     class InputError < StandardError
       # def distance_message
       #   "You must enter a number for distance."
