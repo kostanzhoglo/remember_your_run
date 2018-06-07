@@ -17,7 +17,7 @@ class MonthsController < ApplicationController
   end
 
 # Code below is a tip from @jeloslacks on slack. To help me put return value from a model method into my JSON so I can access it.
-  # f.json {render :json => @comment.to_json(:include => {:user => {:only => :username, :methods => [:gravatar_url_small]}})}
+  # f.json {render :json => @month.to_json(:include => {:user => {:only => :username, :methods => [:gravatar_url_small]}})}
 
   def create
     @month = Month.new(month_params)

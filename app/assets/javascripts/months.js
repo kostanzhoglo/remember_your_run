@@ -21,6 +21,7 @@ $(function () {
   });
 });
 
+
 // const getMonths = function() {
 //   $.get(`/months/${id}.json`, function(data) {
 //     var id = $(this).data("id");
@@ -38,6 +39,7 @@ $(function () {
 //     $('.month_container-' + id).append(`</table>`)
 //   });
 // }
+
 
 function Run(run) {
   this.id = run.id
@@ -98,10 +100,11 @@ let monthTable = function() {
 //
 // const bindClickHandlers = () => {
 //   $(".js-month-info").on('click', (e) => {
+//     e.preventDefault()
+//     console.log('hello')
+
 //     var id = $(this).data("id")
 //      $.get("/months/" + id + ".json", function(data) {
-
-
     // fetch(`/months/${id}.json`)
     //   .then(res => res.json())
     //   .then(data => (data))
@@ -109,5 +112,6 @@ let monthTable = function() {
 
 //     console.log(data)
 //     })
-// })
+
+//   })
 // }
