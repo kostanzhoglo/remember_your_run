@@ -12,7 +12,7 @@ class MonthsController < ApplicationController
     @runs = @month.runs
     respond_to do |format|
       format.html
-      format.json { render json: @month }  # because of AMS.
+      format.json { render json: @month } #.to_json(:include => { :month => {:methods => [:month_mileage]}})}  # because of AMS.
     end
   end
 

@@ -21,25 +21,13 @@ $(function () {
   });
 });
 
-
-// const getMonths = function() {
-//   $.get(`/months/${id}.json`, function(data) {
-//     var id = $(this).data("id");
-//     $('.month_container-' + id).html('')
-//     $(".month_goal-" + id).html(data["goal"]);
-//     monthTable();
-//
-//     // $.each(data["runs"], function(key, value) {
-//     data["runs"].forEach(run => {
-//       let newRun = new Run(run)
-//       let runRowHtml = newRun.formatRuns()
-//       // $('.month_container-' + id).append(runRowHtml)
-//       $('.myTable tr:last').after(runRowHtml)
-//     });
-//     $('.month_container-' + id).append(`</table>`)
-//   });
-// }
-
+$(function () {
+  $('form').submit(function(event) {
+    //prevent form from submitting the default way
+    event.preventDefault();
+    alert("we r hack3rz");
+  });
+});
 
 function Run(run) {
   this.id = run.id
