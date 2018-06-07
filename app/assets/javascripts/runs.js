@@ -1,3 +1,4 @@
+// THIS function works. But not completely.  Bottom function works right.
 
 // $(function () {
 //   $(".js-next-run").on("click", function() {
@@ -22,9 +23,8 @@
 
 
 $(function () {
-
+  // only to be used if js-next-run link doesn't appear when page initially loads.  It does in my app, so this isn't necessary.
   // $(document).on('click', "js-next-run", function () {
-
   $(".js-next-run").on("click", function() {
     let nextId = parseInt($(".js-next-run").attr("data-id"))
     console.log(nextId)

@@ -3,13 +3,12 @@ $(function () {
   $(".js-month-info").on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "months")
+    // getMonths()
     var id = $(this).data("id");
     $.get(`/months/${id}.json`, function(data) {
-
       $('.month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
       monthTable();
-
       // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
@@ -21,6 +20,24 @@ $(function () {
     });
   });
 });
+
+// const getMonths = function() {
+//   $.get(`/months/${id}.json`, function(data) {
+//     var id = $(this).data("id");
+//     $('.month_container-' + id).html('')
+//     $(".month_goal-" + id).html(data["goal"]);
+//     monthTable();
+//
+//     // $.each(data["runs"], function(key, value) {
+//     data["runs"].forEach(run => {
+//       let newRun = new Run(run)
+//       let runRowHtml = newRun.formatRuns()
+//       // $('.month_container-' + id).append(runRowHtml)
+//       $('.myTable tr:last').after(runRowHtml)
+//     });
+//     $('.month_container-' + id).append(`</table>`)
+//   });
+// }
 
 function Run(run) {
   this.id = run.id
@@ -94,9 +111,3 @@ let monthTable = function() {
 //     })
 // })
 // }
-
-// $("#run_distance-" + id).append((key + 1) + " distance: " + value.distance + "<br>")
-// $("#run_duration-" + id).append((key + 1) + " time: " + value.duration + "<br>")
-// $("#run_date-" + id).append((key + 1) + " date:" + value.date + "<br>")
-// $("#run_name-" + id).append((key + 1) + " name:" + value.name + "<br>")
-// $("#run_container-" + id).append((key + 1) + " pace_per_mile:" + value.pace_per_mile + "<br>")
