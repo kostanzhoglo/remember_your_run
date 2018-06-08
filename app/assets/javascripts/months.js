@@ -3,13 +3,15 @@ $(function () {
   $(".js-month-info").on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "months")
-    // getMonths()
     var id = $(this).data("id");
-    $.get(`/months/${id}.json`, function(data) {
+    $.get(`/months/${id}.json`, function(month) {
       $('.month_container-' + id).html('')
-      $(".month_goal-" + id).html(data["goal"]);
+      let newMonth = new Month(month)
+      let monthInfo = newMonth.formatMonth()
+      $('.month_attributes-' + id).append(monthInfo)
+
       monthTable(id);
-      data["runs"].forEach(run => {
+      month["runs"].forEach(run => {
         let newRun = new Run(run)
         let runRowHtml = newRun.formatRuns()
         $('.myTable tr:last').after(runRowHtml)
@@ -33,6 +35,15 @@ $(function () {
   });
 });
 
+function Month(month) {
+  this.id = month.id
+  this.name = month.name
+  this.year = month.year
+  this.goal = month.goal
+  this.month_mileage = month.month_mileage
+  this.month_pace = month.month_pace
+}
+
 function Run(run) {
   this.id = run.id
   this.date = run.date
@@ -44,6 +55,16 @@ function Run(run) {
   this.interval_length = run.interval_length
   this.rest_between_interval = run.rest_between_interval
   this.notes = run.notes
+}
+
+Month.prototype.formatMonth = function() {
+let monthInfo = `
+    <p>Goal: ${this.goal}</p>
+    <p>Mileage: ${this.month_mileage}</p>
+    <p>Month Average Pace: ${this.month_pace}</p>
+    <strong><a href="/months/${this.id}">Make a New Run for This Month</a><strong>
+    `
+  return monthInfo
 }
 
 Run.prototype.formatRuns = function() {
