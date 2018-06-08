@@ -21,13 +21,18 @@ $(function () {
   });
 });
 
-// $(function () {
-//   $('form').submit(function(event) {
-//     //prevent form from submitting the default way
-//     event.preventDefault();
-//     alert("we r hack3rz");
-//   });
-// });
+$(function () {
+  $('.new_run_form').submit(function(event) {
+    //prevent form from submitting the default way
+    event.preventDefault();
+    var values = $(this).serialize();
+    // debugger
+    var posting = $.post(`${this.action}`, values);
+    posting.done(function(data) {
+      console.log(data)
+    });
+  });
+});
 
 function Run(run) {
   this.id = run.id
