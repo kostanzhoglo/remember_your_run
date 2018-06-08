@@ -7,17 +7,9 @@ class RunsController < ApplicationController
     @run[:user_id] = current_user.id
     @run[:pace_per_mile] = @run.format_pace_per_mile
     if @run.save
-      # @run[:pace_per_mile] = @run.format_pace_per_mile
-      # @run.update(run_params)
       # redirect_to month_path(@month)
       render json: @run, status: 201
     else
-      # if @run.distance == 99999999
-      #   flash[:error] = "Make sure to enter a number for Distance"
-      # end
-      # if @run.duration == "99:59:59"
-      #   flash[:error] = "Make sure to enter a time (example 40:00) for Duration."
-      # end
       @month = Month.find(params[:month_id])
       @runs = @month.runs
       render 'months/show'
@@ -41,8 +33,6 @@ class RunsController < ApplicationController
       format.json { render json: @run }  # because of AMS.
     end
   end
-
-  #'/months/:month_id/runs/:id/next'         eventual get request...
 
   def next
     @run = current_user.runs.find_by(id: params[:id])
@@ -88,7 +78,3 @@ class RunsController < ApplicationController
     end
 
 end
-
-# USED TO BE IN   --NEXT-- action. fyi.
-# @month = current_user.months.find_by(id: params[:month_id])
-# @next_run = current_user.next_run(@month, @run???)
