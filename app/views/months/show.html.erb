@@ -15,7 +15,6 @@
 @month is parent, and @run is MAIN source for this form.
 Will send this action to... month_runs_path(@month) -->
 <%= form_for([@month, @run], :html => {class: 'new_run_form'}) do |f| %>
-  <!-- <%#= form_for @month, :html => {class: 'month_form'} do |f| %> -->
 <%= render 'runs/form', f: f %>
 <% end %>
 <br><br>
@@ -60,4 +59,15 @@ Will send this action to... month_runs_path(@month) -->
       <td><%= run.notes %></td>
     </tr>
   <% end %>
+  <tr>
+    <td id="newRunDate"></td>
+    <td id="newRunName"></td>
+    <td id="newRunDistance"></td>
+    <td id="newRunDuration"></td>
+    <td id="newRunPacePerMile"></td>
+    <td id="newRunNumberIntervals"></td>
+    <td id="newRunIntervalLength"></td>
+    <td id="newRunRestBetween"></td>
+    <td id="newRunNotes"></td>
+  </tr>
 </table>

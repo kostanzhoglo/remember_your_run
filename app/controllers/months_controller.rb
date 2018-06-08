@@ -24,7 +24,7 @@ class MonthsController < ApplicationController
     if @month.save
       redirect_to month_url(@month)
     else
-      @months = current_user.months
+      @months = current_user.months.uniq
       render :index
     end
   end

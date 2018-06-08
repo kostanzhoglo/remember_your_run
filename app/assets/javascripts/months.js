@@ -22,6 +22,7 @@ $(function () {
 });
 
 $(function () {
+  $('input').removeAttr('data-disable-with')
   $('.new_run_form').submit(function(event) {
     //prevent form from submitting the default way
     event.preventDefault();
@@ -30,8 +31,15 @@ $(function () {
     var posting = $.post(`${this.action}`, values);
     posting.done(function(run) {
       // console.log(data)
-      $("#runningName").text(run["name"]);
-      $("#runningDate").text(run["date"]);
+      $("#newRunDate").text(run["date"]);
+      $("#newRunName").text(run["name"]);
+      $("#newRunDistance").text(run["distance"]);
+      $("#newRunDuration").text(run["duration"]);
+      $("#newRunPacePerMile").text(run["pace_per_mile"]);
+      $("#newRunNumberIntervals").text(run["number_intervals"]);
+      $("#newRunIntervalLength").text(run["interval_length"]);
+      $("#newRunRestBetween").text(run["rest_between_interval"]);
+      $("#newRunNotes").text(run["notes"]);
     });
   });
 });
