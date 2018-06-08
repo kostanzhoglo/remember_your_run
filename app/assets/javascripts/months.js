@@ -8,7 +8,7 @@ $(function () {
     $.get(`/months/${id}.json`, function(data) {
       $('.month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
-      monthTable();
+      monthTable(id);
       // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
@@ -59,8 +59,8 @@ Run.prototype.formatRuns = function() {
   return runHtml
 }
 
-let monthTable = function() {
-  var id = $(".js-month-info").data("id");
+let monthTable = function(id) {
+  // var id = $(".js-month-info").data("id");
   $('.month_container-' + id).append(`
     <table class="myTable">
       <tr>
