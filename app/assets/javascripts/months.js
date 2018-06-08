@@ -28,8 +28,10 @@ $(function () {
     var values = $(this).serialize();
     // debugger
     var posting = $.post(`${this.action}`, values);
-    posting.done(function(data) {
-      console.log(data)
+    posting.done(function(run) {
+      // console.log(data)
+      $("#runningName").text(run["name"]);
+      $("#runningDate").text(run["date"]);
     });
   });
 });

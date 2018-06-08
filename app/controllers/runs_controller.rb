@@ -9,7 +9,8 @@ class RunsController < ApplicationController
     if @run.save
       # @run[:pace_per_mile] = @run.format_pace_per_mile
       # @run.update(run_params)
-      redirect_to month_path(@month)
+      # redirect_to month_path(@month)
+      render json: @run, status: 201
     else
       # if @run.distance == 99999999
       #   flash[:error] = "Make sure to enter a number for Distance"
