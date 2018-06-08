@@ -9,7 +9,6 @@ $(function () {
       $('.month_container-' + id).html('')
       $(".month_goal-" + id).html(data["goal"]);
       monthTable(id);
-      // $.each(data["runs"], function(key, value) {
       data["runs"].forEach(run => {
         let newRun = new Run(run)
         let runRowHtml = newRun.formatRuns()
@@ -23,23 +22,23 @@ $(function () {
 
 $(function () {
   $('input').removeAttr('data-disable-with')
-  $('.new_run_form').submit(function(event) {
-    //prevent form from submitting the default way
-    event.preventDefault();
+  $('.new_run_form').submit(function(e) {
+    e.preventDefault();
     var values = $(this).serialize();
-    // debugger
     var posting = $.post(`${this.action}`, values);
     posting.done(function(run) {
-      // console.log(data)
-      $("#newRunDate").text(run["date"]);
-      $("#newRunName").text(run["name"]);
-      $("#newRunDistance").text(run["distance"]);
-      $("#newRunDuration").text(run["duration"]);
-      $("#newRunPacePerMile").text(run["pace_per_mile"]);
-      $("#newRunNumberIntervals").text(run["number_intervals"]);
-      $("#newRunIntervalLength").text(run["interval_length"]);
-      $("#newRunRestBetween").text(run["rest_between_interval"]);
-      $("#newRunNotes").text(run["notes"]);
+      let newRun = new Run(run)
+      let runRowHtml = newRun.formatRuns()
+      $('#display_month tbody').append(runRowHtml)
+      // $("#newRunDate").text(run["date"]);
+      // $("#newRunName").text(run["name"]);
+      // $("#newRunDistance").text(run["distance"]);
+      // $("#newRunDuration").text(run["duration"]);
+      // $("#newRunPacePerMile").text(run["pace_per_mile"]);
+      // $("#newRunNumberIntervals").text(run["number_intervals"]);
+      // $("#newRunIntervalLength").text(run["interval_length"]);
+      // $("#newRunRestBetween").text(run["rest_between_interval"]);
+      // $("#newRunNotes").text(run["notes"]);
     });
   });
 });

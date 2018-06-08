@@ -33,33 +33,36 @@ Will send this action to... month_runs_path(@month) -->
 <h3>Average Pace Per Mile This Month: <%= @month.month_pace %></h3>
 <h3>Month Goal: <%= @month.goal %></h3>
 
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Name</th>
-    <th>Distance (Miles)</th>
-    <th>Time</th>
-    <th>Pace / Mile</th>
-    <th>Number of Intervals</th>
-    <th>Interval Length</th>
-    <th>Rest Between Intervals</th>
-    <th>Notes</th>
-  </tr>
-
-  <% @runs.each do |run| %>
+<table id="display_month">
+  <thead>
     <tr>
-      <td><%= link_to run.date, month_run_path(run.month, run) %></td>
-      <td><%= run.name %></td>
-      <td><%= run.distance %></td>
-      <td><%= run.duration %></td>
-      <td><%= run.format_pace_per_mile %></td>
-      <td><%= run.number_intervals %></td>
-      <td><%= run.format_interval_length %></td>
-      <td><%= run.format_rest_between %></td>
-      <td><%= run.notes %></td>
+      <th>Date</th>
+      <th>Name</th>
+      <th>Distance (Miles)</th>
+      <th>Time</th>
+      <th>Pace / Mile</th>
+      <th>Number of Intervals</th>
+      <th>Interval Length</th>
+      <th>Rest Between Intervals</th>
+      <th>Notes</th>
     </tr>
-  <% end %>
-  <tr>
+  </thead>
+  <tbody>
+    <% @runs.each do |run| %>
+      <tr>
+        <td><%= link_to run.date, month_run_path(run.month, run) %></td>
+        <td><%= run.name %></td>
+        <td><%= run.distance %></td>
+        <td><%= run.duration %></td>
+        <td><%= run.format_pace_per_mile %></td>
+        <td><%= run.number_intervals %></td>
+        <td><%= run.format_interval_length %></td>
+        <td><%= run.format_rest_between %></td>
+        <td><%= run.notes %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <!-- <tr>
     <td id="newRunDate"></td>
     <td id="newRunName"></td>
     <td id="newRunDistance"></td>
@@ -69,5 +72,5 @@ Will send this action to... month_runs_path(@month) -->
     <td id="newRunIntervalLength"></td>
     <td id="newRunRestBetween"></td>
     <td id="newRunNotes"></td>
-  </tr>
+  </tr> -->
 </table>
