@@ -18,7 +18,8 @@
 
 <section class="main">
   <strong><h2>Start a New Running Month</h2></strong>
-  <%= form_for @month, :html => {class: 'month_form'} do |f| %>
+  <!-- <%#= form_for @month, :html => {class: 'month_form'} do |f| %> -->
+  <%= form_for @month do |f| %>
     <%= f.label :month%>
     <%= f.text_field :name, placeholder: (@month.errors.full_messages_for(:name).first) %>
 
