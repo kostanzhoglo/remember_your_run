@@ -6,6 +6,7 @@ $(function () {
     var id = $(this).data("id");
     $.get(`/months/${id}.json`, function(month) {
       $('.month_container-' + id).html('')
+      $('.month_attributes-' + id).html('')
       let newMonth = new Month(month)
       let monthInfo = newMonth.formatMonth()
       $('.month_attributes-' + id).append(monthInfo)
@@ -19,9 +20,8 @@ $(function () {
       $('.month_container-' + id).append(`</table>`)
     });
   });
-});
 
-$(function () {
+
   $('input').removeAttr('data-disable-with')
   $('.new_run_form').submit(function(e) {
     e.preventDefault();
@@ -33,6 +33,7 @@ $(function () {
       $('#display_month tbody').append(runRowHtml)
     });
   });
+
 });
 
 function Month(month) {
