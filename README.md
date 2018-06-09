@@ -24,6 +24,6 @@ In addition, this project is a welcoming space for collaboration, but you are ex
 
 ## License:
 This project has been licensed under the MIT open source license.  
-          (also see LICENSE file)  
+          (also see [LICENSE](./LICENSE) file)  
 
 Copyright (c) 2018 Jeffrey Withers
