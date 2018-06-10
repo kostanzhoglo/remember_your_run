@@ -7,9 +7,14 @@ class MonthsController < ApplicationController
   end
 
   def show
-    @month = current_user.months.find_by(id: params[:id])
+    @month = Month.find_by(id: params[:id])
     @run = Run.new
     @runs = @month.runs
+    # if @month
+    #   @runs = @month.runs
+    # else
+    #   @runs = nil
+    # end
     respond_to do |format|
       format.html
       format.json { render json: @month }  # because of AMS.
