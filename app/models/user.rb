@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true
 
   has_many :runs
-  has_many :months, through: :runs
+  has_many :months
 
   def self.find_or_create_by_omniauth(auth_hash)
     self.where(email: auth_hash["info"]["email"]).first_or_create do |user|
