@@ -7,14 +7,9 @@ class MonthsController < ApplicationController
   end
 
   def show
-    @month = Month.find_by(id: params[:id])
+    @month = current_user.months.find_by(id: params[:id])
     @run = Run.new
     @runs = @month.runs
-    # if @month
-    #   @runs = @month.runs
-    # else
-    #   @runs = nil
-    # end
     respond_to do |format|
       format.html
       format.json { render json: @month }  # because of AMS.
@@ -22,7 +17,11 @@ class MonthsController < ApplicationController
   end
 
   def create
-    @month = Month.new(month_params)
+    # raise @current_user.inspect
+    @month = @current_user.months.build(month_params)
+    @month[:user_id] = @current_user.id
+    # raise params.inspect
+    # @month = Month.new(month_params)
     if @month.save
       redirect_to month_url(@month)
     else
@@ -34,7 +33,7 @@ class MonthsController < ApplicationController
   private
 
     def month_params
-      params.require(:month).permit(:name, :year, :goal)
+      params.require(:month).permit(:name, :year, :goal, :user_id)
     end
 
 end
