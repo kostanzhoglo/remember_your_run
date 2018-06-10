@@ -17,11 +17,8 @@ class MonthsController < ApplicationController
   end
 
   def create
-    # raise @current_user.inspect
     @month = @current_user.months.build(month_params)
     @month[:user_id] = @current_user.id
-    # raise params.inspect
-    # @month = Month.new(month_params)
     if @month.save
       redirect_to month_url(@month)
     else
