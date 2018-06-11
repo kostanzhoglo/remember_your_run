@@ -1,11 +1,11 @@
 
-$(function () {
+$(() => {
   // only to be used if js-next-run link doesn't appear when page initially loads.  It does in my app, so this isn't necessary.
   // $(document).on('click', "js-next-run", function () {
-  $(".js-next-run").on("click", function() {
+  $(".js-next-run").on("click", () => {
     let nextId = parseInt($(".js-next-run").attr("data-id"))
     console.log(nextId)
-    $.get(`/runs/${nextId}/next`, function(run) {
+    $.get(`/runs/${nextId}/next`, (run) => {
       $("#runMessage").text(`You Went for a Run on ${run["date"]}`);
       $("#runDate").text(run["date"]);
       $("#runName").text(run["name"]);

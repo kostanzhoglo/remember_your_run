@@ -1,10 +1,10 @@
-$(function () {
+$(() => {
 
   $(".js-month-info").on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "months")
     var id = $(this).data("id");
-    $.get(`/months/${id}.json`, function(month) {
+    $.get(`/months/${id}.json`, (month) => {
       $('.month_container-' + id).html('')
       $('.month_attributes-' + id).html('')
       let newMonth = new Month(month)
