@@ -3,18 +3,18 @@ $(() => {
   $(".js-month-info").on('click', function(e) {
     e.preventDefault()
     history.pushState(null, null, "months")
-    var id = $(this).data("id");
+    const id = $(this).data("id");
     $.get(`/months/${id}.json`, (month) => {
       $('.month_container-' + id).html('')
       $('.month_attributes-' + id).html('')
-      let newMonth = new Month(month)
-      let monthInfo = newMonth.formatMonth()
+      const newMonth = new Month(month)
+      const monthInfo = newMonth.formatMonth()
       $('.month_attributes-' + id).append(monthInfo)
 
       monthTable(id);
       month["runs"].forEach(run => {
-        let newRun = new Run(run)
-        let runRowHtml = newRun.formatRuns()
+        const newRun = new Run(run)
+        const runRowHtml = newRun.formatRuns()
         $('.myTable tr:last').after(runRowHtml)
       });
       $('.month_container-' + id).append(`</table>`)
@@ -25,11 +25,11 @@ $(() => {
   $('input').removeAttr('data-disable-with')
   $('.new_run_form').submit(function(e) {
     e.preventDefault();
-    var values = $(this).serialize();
-    var posting = $.post(`${this.action}`, values);
+    const values = $(this).serialize();
+    const posting = $.post(`${this.action}`, values);
     posting.done(function(run) {
-      let newRun = new Run(run)
-      let runRowHtml = newRun.formatRuns()
+      const newRun = new Run(run)
+      const runRowHtml = newRun.formatRuns()
       $('#display_month tbody').append(runRowHtml)
     });
   });
