@@ -15,7 +15,7 @@ $(() => {
       month["runs"].forEach(run => {
         const newRun = new Run(run)
         const runRowHtml = newRun.formatRuns()
-        $('.myTable tr:last').after(runRowHtml)
+        $(`.month_container-${id} .myTable tr:last`).after(runRowHtml)
       });
       // $('.month_container-' + id).append(`</table>`)
     });
@@ -116,16 +116,16 @@ let monthTable = function(id) {
 //   $(".js-month-info").on('click', (e) => {
 //     e.preventDefault()
 //     console.log('hello')
-
+//
 //     var id = $(this).data("id")
 //      $.get("/months/" + id + ".json", function(data) {
-    // fetch(`/months/${id}.json`)
-    //   .then(res => res.json())
-    //   .then(data => (data))
-
-
+//     fetch(`/months/${id}.json`)
+//       .then(res => res.json())
+//       .then(data => (data))
+//
+//
 //     console.log(data)
 //     })
-
+//
 //   })
 // }
