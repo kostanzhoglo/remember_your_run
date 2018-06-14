@@ -9,7 +9,7 @@
 <% @months.each do |month| %>
   <h3><a href="" class="js-month-info" data-id="<%= month.id %>"><%= "#{month.name} #{month.year}" %></a></h3>
     <div class="month_attributes-<%= month.id %>"></div>
-    <div class="month_goal-<%= month.id %>"></div>
+    <!-- <div class="month_goal-<%= month.id %>"></div> -->
     <!-- Container where the run info will populate.  but the formatting is done from the months.js file.  -->
     <div class="month_container-<%= month.id %>"></div>
 <% end %>

@@ -17,12 +17,12 @@ $(() => {
         const runRowHtml = newRun.formatRuns()
         $('.myTable tr:last').after(runRowHtml)
       });
-      $('.month_container-' + id).append(`</table>`)
+      // $('.month_container-' + id).append(`</table>`)
     });
   });
 
 
-  $('input').removeAttr('data-disable-with')
+  // $('input').removeAttr('data-disable-with')
   $('.new_run_form').submit(function(e) {
     e.preventDefault();
     const values = $(this).serialize();
