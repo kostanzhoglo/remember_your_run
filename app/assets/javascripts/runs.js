@@ -4,6 +4,8 @@ $(() => {
   // $(document).on('click', "js-next-run", function () {
   $(".js-next-run").on("click", () => {
     const nextId = parseInt($(".js-next-run").attr("data-id"))
+    // history.pushState(null, null, `/${id}`)
+    // console.log()
     console.log(nextId)
     $.get(`/runs/${nextId}/next`, (run) => {
       $("#runMessage").text(`You Went for a Run on ${run["date"]}`);

@@ -10,6 +10,9 @@ $(() => {
       const newMonth = new Month(month)
       const monthInfo = newMonth.formatMonth()
       $('.month_attributes-' + id).append(monthInfo)
+      console.log(month.runs)
+      const may = month.runs
+      may.sort(function(a, b) {return a.distance - b.distance});
 
       monthTable(id);
       month["runs"].forEach(run => {
@@ -41,8 +44,8 @@ function Month(month) {
   this.name = month.name
   this.year = month.year
   this.goal = month.goal
-  this.month_mileage = month.month_mileage
-  this.month_pace = month.month_pace
+  this.monthMileage = month.month_mileage
+  this.monthPace = month.month_pace
 }
 
 function Run(run) {
@@ -51,18 +54,18 @@ function Run(run) {
   this.name = run.name
   this.distance = run.distance
   this.duration = run.duration
-  this.pace_per_mile = run.pace_per_mile
-  this.number_intervals = run.number_intervals
-  this.interval_length = run.interval_length
-  this.rest_between_interval = run.rest_between_interval
+  this.pacePerMile = run.pace_per_mile
+  this.numberIntervals = run.number_intervals
+  this.intervalLength = run.interval_length
+  this.restBetweenInterval = run.rest_between_interval
   this.notes = run.notes
 }
 
 Month.prototype.formatMonth = function() {
 let monthInfo = `
     <p>Goal: ${this.goal}</p>
-    <p>Mileage: ${this.month_mileage}</p>
-    <p>Month Average Pace: ${this.month_pace}</p>
+    <p>Mileage: ${this.monthMileage}</p>
+    <p>Month Average Pace: ${this.monthPace}</p>
     <strong><a href="/months/${this.id}">Make a New Run for This Month</a><strong>
     `
   return monthInfo
@@ -75,10 +78,10 @@ Run.prototype.formatRuns = function() {
       <td>${this.name}</td>
       <td>${this.distance}</td>
       <td>${this.duration}</td>
-      <td>${this.pace_per_mile}</td>
-      <td>${this.number_intervals}</td>
-      <td>${this.interval_length}</td>
-      <td>${this.rest_between_interval}</td>
+      <td>${this.pacePerMile}</td>
+      <td>${this.numberIntervals}</td>
+      <td>${this.intervalLength}</td>
+      <td>${this.restBetweenInterval}</td>
       <td>${this.notes}</td>
     </tr>
   `
