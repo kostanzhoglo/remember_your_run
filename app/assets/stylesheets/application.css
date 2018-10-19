@@ -47,3 +47,19 @@ td {
 .alert-danger{
   color: red;
 }
+
+body {
+  background-image: url("./images/Radiant-Gradient.svg"),
+    linear-gradient(135deg, #ffef44, #3a85ff);
+  background-size: 1400px, auto;
+  min-height: calc(100vh - 100px);
+  margin: 50px;
+  /* background: white; */
+  background-attachment: fixed;
+  /* letter-spacing: -1px; */
+}
+
+.svgAttribution {
+  font-size: 10px;
+  text-align: right;
+}
