@@ -10,9 +10,11 @@ $(() => {
       const newMonth = new Month(month)
       const monthInfo = newMonth.formatMonth()
       $('.month_attributes-' + id).append(monthInfo)
-      console.log(month.runs)
-      const may = month.runs
-      may.sort(function(a, b) {return a.distance - b.distance});
+
+      // IF YOU WANT TO SORT MONTH_RUNS DISPLAY by LENGTH of RUN, comment the next 3 lines back in.!
+      // console.log(month.runs)
+      // const may = month.runs
+      // may.sort(function(a, b) {return a.distance - b.distance});
 
       monthTable(id);
       month["runs"].forEach(run => {
