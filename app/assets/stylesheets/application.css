@@ -74,6 +74,12 @@ body {
   padding: 3px;
 }
 
+/* .containerVert {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repears(10, 1fr);
+} */
+
 .item {
   display: grid;
   justify-content: center;
